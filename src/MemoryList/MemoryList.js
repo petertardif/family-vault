@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Memory from '../Memory/Memory';
-import memories from '../fake-data-store';
 import './MemoryList'
 
 export default class MemoryList extends Component {
+  static defaultProps = {
+    memories: []
+  };
+
   render() {
+    const { memories } = this.props
     return (
       <section className='MemoryList'>
         <h2>Memories</h2>
@@ -20,4 +24,3 @@ export default class MemoryList extends Component {
     );
   }
 }
-
