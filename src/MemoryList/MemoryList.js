@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import Memory from '../Memory/Memory';
 import './MemoryList'
+import { MemoryContext } from '../MemoryContext';
 
 export default class MemoryList extends Component {
-  static defaultProps = {
-    memories: []
-  };
+  static contextType = MemoryContext;
 
   render() {
-    const { memories } = this.props
     return (
       <section className='MemoryList'>
         <h2>Memories</h2>
         <ul className='MemoryList_list' aria-live='polite'>
-          {memories.map(memory =>
+          {this.context.memories.map(memory =>
             <Memory
               key={memory.id}
               {...memory}
