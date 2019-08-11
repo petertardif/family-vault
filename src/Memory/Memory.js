@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { MemoryContext } from '../MemoryContext';
 import Toggle from '../Toggle/Toggle';
 import './Memory.css';
 
 export default class Memory extends Component {
-  static contextType = MemoryContext;
   
   render() {
     return (

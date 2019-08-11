@@ -1,5 +1,19 @@
 import React from 'react';
+import './Button.css';
 
-export function Button({ className, ...props }) {
-  return <button className={['Button', className].join(' ')} {...props} />
+export default function Button(props) {
+  const { tag, className, children, ...otherProps } = props
+
+  return React.createElement(
+    props.tag,
+    {
+      className: ['Button', props.classname].join(' '),
+      ...otherProps
+    },
+    props.children
+  )
+}
+
+Button.defaultProps = {
+  tag: 'a',
 }

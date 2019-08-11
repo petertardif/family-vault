@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import MemoryList from '../MemoryList/MemoryList';
 import MemoryPage from '../MemoryPage/MemoryPage';
+import UserLandingPage from '../UserLanding/UserLandingPage';
 import { MemoryContext } from '../MemoryContext';
 import Faker from 'faker';
 
@@ -56,10 +57,13 @@ export default class App extends Component {
           <Switch>
             <Route 
               exact path='/' 
-
             />
             <Route 
-              exact path='/memory' 
+              path='/userlanding' 
+              component={UserLandingPage}
+            />
+            <Route 
+              exact path='/memorylist' 
               render={() => 
                 <MemoryList 
                   {...this.state}
