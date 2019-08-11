@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Memory from '../Memory/Memory';
+import Button from '../Button/Button';
 import { MemoryContext } from '../MemoryContext';
 
 export default class MemoryPage extends Component {
@@ -18,6 +20,10 @@ export default class MemoryPage extends Component {
     return (
       <section>
         {filteredMemory}
+        <section className='buttons'>
+          <Button tag={Link} to='/memorylist' type='button' className='MemoryList_back-button'
+          >Back</Button>
+        </section>
       </section>
     )    
   }

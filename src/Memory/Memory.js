@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Toggle from '../Toggle/Toggle';
 import './Memory.css';
 
@@ -9,7 +10,9 @@ export default class Memory extends Component {
       <li className='Memory'>
         <div className='Memory_row'>
           <h2 className='Memory_title'>
-            {this.props.title}
+            <Link to={`/memory/${this.props.id}`}>
+              {this.props.title}
+              </Link>
           </h2>
           <div className='Memory_dates'>
             <div className='Memory_dates-modified'>

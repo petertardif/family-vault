@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Memory from '../Memory/Memory';
-import './MemoryList'
+import Button from '../Button/Button';
 import { MemoryContext } from '../MemoryContext';
+import './MemoryList'
 
 export default class MemoryList extends Component {
   static contextType = MemoryContext;
@@ -9,7 +11,7 @@ export default class MemoryList extends Component {
   render() {
     return (
       <section className='MemoryList'>
-        <h2>Memories</h2>
+        <h2>Memories</h2> 
         <ul className='MemoryList_list' aria-live='polite'>
           {this.context.memories.map(memory =>
             <Memory
@@ -18,6 +20,10 @@ export default class MemoryList extends Component {
             />
           )}
         </ul>
+        <section className='buttons'>
+          <Button tag={Link} to='/userlanding' type='button' className='UserLandingPage_back-button'
+          >Back to home page</Button>
+        </section>
       </section>
     );
   }
