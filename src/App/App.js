@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import MemoryList from '../MemoryList/MemoryList';
 import MemoryPage from '../MemoryPage/MemoryPage';
 import AddMemory from '../AddMemory/AddMemory';
@@ -8,6 +9,7 @@ import LandingPage from '../LandingPage/LandingPage'
 import UserLandingPage from '../UserLanding/UserLandingPage';
 import { MemoryContext } from '../MemoryContext';
 import Faker from 'faker';
+import './App.css';
 
 export default class App extends Component {
   state = {
@@ -108,6 +110,7 @@ export default class App extends Component {
             </Switch>
           </MemoryContext.Provider>
         </main>
+        <Footer />
       </>
     )
   }
