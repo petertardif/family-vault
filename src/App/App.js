@@ -8,70 +8,83 @@ import AddMemory from '../AddMemory/AddMemory';
 import LandingPage from '../LandingPage/LandingPage'
 import UserLandingPage from '../UserLanding/UserLandingPage';
 import { MemoryContext } from '../MemoryContext';
-import Faker from 'faker';
+// import Faker from 'faker';
 import './App.css';
 
 export default class App extends Component {
   state = {
     memories: [],
-    familyMember: [],
+    familyMembers: [],
     error: null,
   }
   
   componentDidMount() {
-    let MemoryStore = [
-      {
-        id: 1,
-        title: "words",
-        memory_date: "Today's date",
-        memory_desc: "Here is a sentence.",
-        media_url: "https://via.placeholder.com/150",
-        familymember_id: 1,
-        tag_id: 1,
-        comment_id: 1,
-        date_updated: "Tue Aug 08 2019",
-      }
-    ];
 
-    let FamilyMemberStore = [
-      {
-        id: 1,
-        first_name: "Lenny",
-        last_name: "Tardif",
-      }
-    ];
-
-    for(var i = 0; i < 10; i++) {
-      MemoryStore.push({
-          id: Faker.random.uuid(),
-          title: Faker.lorem.words(),
-          memory_date: Faker.date.past().toDateString(),
-          memory_desc: Faker.lorem.sentences(),
-          media_url: "https://via.placeholder.com/150",
-          familymember_id: Faker.random.number(),
-          tag_id: Faker.random.number(),
-          comment_id: Faker.random.number(),
-          date_updated: Faker.date.recent().toDateString(),
+    Promise.all([
+      fetch(`https://agile-fortress-94521.herokuapp.com/api/memories`),
+      fetch(`https://agile-fortress-94521.herokuapp.com/api/family-members`)
+    ])
+      .then(([memoriesResponse,familymembersResponse]) => {
+        if(!memoriesResponse.ok) {
+          return memoriesResponse.json().then(error => Promise.reject(error))
         }
-      )
-      FamilyMemberStore.push({
-        id: Faker.random.number(),
-        first_name: Faker.name.firstName(),
-        last_name: Faker.name.lastName(),
+        if (!familymembersResponse) {
+          return familymembersResponse.json().then(error => Promise.reject(error))
+        }
+        return Promise.all([
+          memoriesResponse.json(),
+          familymembersResponse.json(),
+        ])
       })
-    }
+      .then(([memories,familyMembers]) => {
+        this.setState({ memories, familyMembers})
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message
+        });
+      })
+  }
 
-    setTimeout(() => this.setState({
-      memories: MemoryStore,
-      familyMember: FamilyMemberStore,
-      })
-    )
+  handleAddFamilyMember = familymember => {
+    this.setState({
+      familyMembers: [
+        ...this.state.familyMembers,
+        familymember
+      ]
+    })
+  }
+
+  handleAddMemory = memory => {
+    this.setState({
+      memories: [
+        ...this.state.memories,
+        memory
+      ]
+    })
+  }
+
+  handleUpdateMemoryList = memory => {
+    this.setState({
+      memories: memory
+    })
+  }
+
+  handleDeleteMemory = memoryId => {
+    this.setState({
+      memories: this.state.memories.filter(memory => memory.id !== memoryId)
+    })
   }
 
   render(){
     const contextMemoriesValue = {
       memories: this.state.memories,
-      familyMember: this.state.familyMember,
+      familyMembers: this.state.familyMembers,
+      addMemory: this.handleAddMemory,
+      deleteMemory: this.handleDeleteMemory,
+      addFamilyMember: this.handleAddFamilyMember,
+      deleteFamilyMember: this.handleDeleteFamilyMember,
+      updateMemoryList: this.handleUpdateMemoryList,
     }
 
     return (

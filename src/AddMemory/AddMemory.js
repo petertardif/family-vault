@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import MemoryForm from '../MemoryForm/MemoryForm';
 import { MemoryContext } from '../MemoryContext';
 import './AddMemory.css';
 import Button from '../Button/Button';
+import { API_BASE_URL } from '../config';
 
-export default class AddMemory extends Component {
+class AddMemory extends Component {
   static defaultProps = {
+    familyMembers: [],
     history: {
       push: () => { }
     }
   }
+
+static contextType = MemoryContext;
 
 constructor(props) {
   super(props);
@@ -124,46 +128,44 @@ constructor(props) {
     });
   }
 
-  static contextType = MemoryContext;
-
-  // handleSubmit = e => {
-  //   e.preventDefault()
-  //   const newMemory = {
-  //     title: e.target['memory-title'].value,
-  //     memory_desc: e.target['memory-description'].value,
-  //     familymember_id: e.target['family-member-id'].value,
-  //     media_url: "https://via.placeholder.com/150",
-  //     memory_date: e.target['note-content'].value,
-  //     date_updated: new Date(),
-  //   }
-  //   fetch(`http://localhost:9090/notes/`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     },
-  //     body: JSON.stringify(newMemory),
-  //   })
-  //     .then(res => {
-  //       if (!res.ok)
-  //         return res.json().then(e => Promise.reject(e))
-  //       return res.json()
-  //     })
-  //     .then(memory => {
-  //       this.context.addNote(note)
-  //       this.props.history.push(`/memory/${memory.memoryId}`)
-  //     })
-  //     .catch(error => {
-  //       console.error({ error })
-  //     })
-  // }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const newMemory = {
+      memory_title: e.target['memory-title'].value,
+      memory_desc: e.target['memory-description'].value,
+      familymember_id: e.target['family-member-id'].value,
+      media_url: "https://via.placeholder.com/150",
+      memory_date: e.target['memory-date'].value,
+      date_updated: new Date().toDateString(),
+    }
+    fetch(`${API_BASE_URL}/memories`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newMemory),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(memory => {
+        this.context.addMemory(newMemory)
+        this.props.history.push(`/memorylist`)
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+  }
 
   render() {
-    const { familyMember = [] } = this.context;
+    const { familyMembers = [] } = this.context;
     
     return (
       <section>
         <h1>New Memory</h1>
-        <MemoryForm onSubmit={this.handleSubmit}>
+        <MemoryForm onSubmit={e => this.handleSubmit(e)}>
           <div className='field'>
             <label htmlFor='memory-title-input'>
               Memory Title
@@ -182,7 +184,7 @@ constructor(props) {
             </label>
             <select id='family-member-select' name='family-member-id' onChange={e => this.updateFamilyMember(e.target.value)}>
               <option value="empty">...</option>
-              {familyMember.map(fm =>
+              {familyMembers.map(fm =>
                 <option key={fm.id} value={fm.id}>
                   `{fm.first_name} {fm.last_name}`
                 </option>
@@ -213,3 +215,5 @@ constructor(props) {
     )
   }
 }
+
+export default withRouter(AddMemory);

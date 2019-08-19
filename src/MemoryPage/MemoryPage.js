@@ -14,7 +14,7 @@ export default class MemoryPage extends Component {
   render() {
     let selectedMemory = Number(this.props.match.params.memoryId);
     
-    let filteredMemory = this.context.memories.map(memory => selectedMemory === memory.id ? <Memory key={memory.id} {...memory}/> : null
+    let filteredMemory = this.context.memories.map(memory => selectedMemory === memory.id ? <Memory key={memory.id} {...memory} deleteMemory={this.context.deleteMemory}/> : null
     );
 
     return (

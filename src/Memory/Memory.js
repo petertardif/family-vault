@@ -1,17 +1,52 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Toggle from '../Toggle/Toggle';
+import { API_BASE_URL } from '../config';
 import './Memory.css';
+import { MemoryContext } from '../MemoryContext';
 
-export default class Memory extends Component {
+class Memory extends Component {
+  // static defaultProps = {
+  //   onDeleteMemory: () => {},
+  // }
+  static contextType = MemoryContext;
+
+  handleDeleteRequest = (event) => {
+    event.preventDefault()
+    const memoryId = this.props.id
+    debugger
+    fetch(`${API_BASE_URL}/memories/${memoryId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      },
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(() => {
+        this.context.deleteMemory(memoryId)
+        this.props.history.push(`/memorylist/${memoryId}`)
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+      this.props.deleteMemory(memoryId)
+      debugger
+      this.props.history.push(`/memorylist`)
+      // this.props.history.push(`/memorylist/${memoryId}`)
+    };
   
+
   render() {
     return (
-      <li className='Memory'>
+      <li key={this.props.id} className='Memory'>
         <div className='Memory_row'>
           <h2 className='Memory_title'>
             <Link to={`/memory/${this.props.id}`}>
-              {this.props.title}
+              {this.props.memory_title}
               </Link>
           </h2>
           <div className='Memory_dates'>
@@ -29,15 +64,16 @@ export default class Memory extends Component {
                       {this.props.memory_desc}
                     </p>
                     <div className='Memory_buttons'>
-                      <button
+                      {/* <button
                         className='Btn_memory_edit'
                         // onClick={() => props.onClickEdit(props.id)}
                       >
                         Edit
-                      </button>
+                      </button> */}
                       <button
+                        type='button'
                         className='Btn_memory_delete'
-                        // onClick={() => props.onClickDelete(props.id)}
+                        onClick={this.handleDeleteRequest}
                       >
                         Delete
                       </button>
@@ -57,3 +93,5 @@ export default class Memory extends Component {
 Memory.defaultProps = {
   onClickDelete: () => {},
 }
+
+export default withRouter(Memory);
