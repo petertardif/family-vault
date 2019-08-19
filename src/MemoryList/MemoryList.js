@@ -6,7 +6,36 @@ import { MemoryContext } from '../MemoryContext';
 import './MemoryList'
 
 export default class MemoryList extends Component {
+  static defaultProps = {
+    memories: [],
+    familyMembers: [],
+    history: {
+      push: () => { }
+    }
+  }
+
   static contextType = MemoryContext;
+  
+  componentWillMount() {
+      fetch(`https://agile-fortress-94521.herokuapp.com/api/memories`)
+      // fetch(`https://agile-fortress-94521.herokuapp.com/api/family-members`)
+      
+      .then((memoriesResponse) => {
+        if(!memoriesResponse.ok) {
+          return memoriesResponse.json().then(error => Promise.reject(error))
+        }
+        return memoriesResponse.json()
+      })
+      .then((memories) => {
+
+        this.context.updateMemoryList(memories)
+      })
+      .catch(err => {
+        this.setState({
+          error: err.message
+        });
+      })
+  }
 
   render() {
     return (

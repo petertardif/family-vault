@@ -2,5 +2,10 @@ import React from 'react';
 
 export const MemoryContext = React.createContext({
   memories: [],
-  familyMember: [],
+  familyMembers: [],
+  addMemory: () => {},
+  deleteMemory: () => {},
+  addFamilyMember: () => {},
+  deleteFamilyMember: () => {},
+  updateMemoryList: () => {},
 });
