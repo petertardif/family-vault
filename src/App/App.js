@@ -7,6 +7,7 @@ import MemoryPage from '../MemoryPage/MemoryPage';
 import AddMemory from '../AddMemory/AddMemory';
 import LandingPage from '../LandingPage/LandingPage'
 import UserLandingPage from '../UserLanding/UserLandingPage';
+import PageNotFound from '../PageNotFound/PageNotFound';
 import { MemoryContext } from '../MemoryContext';
 // import Faker from 'faker';
 import './App.css';
@@ -119,7 +120,8 @@ export default class App extends Component {
                     {...this.state}
                   />}
               />
-              {/* <Route component={NotFoundPage} /> //THIS MUST BE AT THE BOTTOM OR IT WILL ALWAYS RENDER*/}
+              {/* THIS ROUTE BELOW MUST BE AT THE BOTTOM OR IT WILL ALWAYS RENDER */}
+              <Route component={PageNotFound} /> 
             </Switch>
           </MemoryContext.Provider>
         </main>
