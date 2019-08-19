@@ -11,10 +11,9 @@ class Memory extends Component {
   // }
   static contextType = MemoryContext;
 
-  handleDeleteRequest = (event) => {
-    event.preventDefault()
+  handleDeleteRequest = () => {
+    // event.preventDefault()
     const memoryId = this.props.id
-    debugger
     fetch(`${API_BASE_URL}/memories/${memoryId}`, {
       method: 'DELETE',
       headers: {
@@ -36,7 +35,6 @@ class Memory extends Component {
       this.props.deleteMemory(memoryId)
       debugger
       this.props.history.push(`/memorylist`)
-      // this.props.history.push(`/memorylist/${memoryId}`)
     };
   
 
