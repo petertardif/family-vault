@@ -11,7 +11,7 @@ export default class Navbar extends Component {
             <h1>FV</h1>
           </div>
           <ul>
-            <li><button id="myBtn">Sign up / Log in</button></li>
+            {/* <li><button id="myBtn">Sign up / Log in</button></li> */}
             <li><Button tag={Link} to='/userlanding' type='button' className='Navbar_tour-button'
           >Demo</Button></li>
           </ul>
