@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserLandingPage component renders a .UserLandingPage by default 1`] = `
+<Fragment>
+  <header>
+    <h1>
+      Create and forever cherish the moments!
+    </h1>
+  </header>
+  <Button
+    className="UserLandingPage_add-memory-button"
+    tag={[Function]}
+    to="/add-memory"
+    type="button"
+  >
+    Add a Memory
+  </Button>
+  <Button
+    className="UserLandingPage_add-memory-button"
+    tag={[Function]}
+    to="/memorylist"
+    type="button"
+  >
+    Preview Memory Page
+  </Button>
+</Fragment>
+`;

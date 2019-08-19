@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemoryForm component renders a form.MemoryForm by default 1`] = `
+<form
+  action="#"
+  className="Memory-form "
+/>
+`;
+
+exports[`MemoryForm component renders the MemoryForm given props 1`] = `
+<form
+  action="#"
+  className="Memory-form test-class-name"
+  data-other="test-other-prop"
+>
+  <p>
+    test children
+  </p>
+</form>
+`;

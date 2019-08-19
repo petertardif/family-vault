@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddMemory component renders empty given no items 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`AddMemory component renders memories when supplied with an items prop 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

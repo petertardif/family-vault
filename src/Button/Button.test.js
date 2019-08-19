@@ -1,22 +1,23 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import MemoryForm from './MemoryForm'
+import Button from './Button'
 
-describe(`MemoryForm component`, () => {
+describe(`Button component`, () => {
   const props = {
+    tag: 'a',
     className: 'test-class-name',
     children: <p>test children</p>,
     'data-other': 'test-other-prop'
   }
 
-  it('renders a form.MemoryForm by default', () => {
-    const wrapper = shallow(<MemoryForm />)
+  it('renders a Button by default', () => {
+    const wrapper = shallow(<Button />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
-  it('renders the MemoryForm given props', () => {
-    const wrapper = shallow(<MemoryForm {...props} />)
+  it('renders the button from props', () => {
+    const wrapper = shallow(<Button {...props} />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

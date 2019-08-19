@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Memory component renders a .Memory by default 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`Memory component renders the Memory given props 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

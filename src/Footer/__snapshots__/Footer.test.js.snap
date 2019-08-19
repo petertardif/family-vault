@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders a .Footer by default 1`] = `
+<Fragment>
+  <footer>
+    <ul>
+      <li>
+        About
+      </li>
+      <li>
+        Terms of Use
+      </li>
+    </ul>
+  </footer>
+</Fragment>
+`;
