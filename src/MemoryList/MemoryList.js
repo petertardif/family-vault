@@ -17,6 +17,7 @@ export default class MemoryList extends Component {
   static contextType = MemoryContext;
   
   componentWillMount() {
+    debugger
       fetch(`https://agile-fortress-94521.herokuapp.com/api/memories`)
       // fetch(`https://agile-fortress-94521.herokuapp.com/api/family-members`)
       
@@ -27,7 +28,6 @@ export default class MemoryList extends Component {
         return memoriesResponse.json()
       })
       .then((memories) => {
-
         this.context.updateMemoryList(memories)
       })
       .catch(err => {

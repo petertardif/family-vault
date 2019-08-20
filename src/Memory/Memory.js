@@ -21,20 +21,18 @@ class Memory extends Component {
       },
     })
       .then(res => {
-        if (!res.ok)
+        if (!res.ok) {
           return res.json().then(e => Promise.reject(e))
-        return res.json()
+        }
+        return 
       })
       .then(() => {
         this.context.deleteMemory(memoryId)
-        this.props.history.push(`/memorylist/${memoryId}`)
+        this.props.history.push(`/memorylist`)
       })
       .catch(error => {
         console.error({ error })
-      })
-      this.props.deleteMemory(memoryId)
-      debugger
-      this.props.history.push(`/memorylist`)
+      })      
     };
   
 
