@@ -9,7 +9,6 @@ import LandingPage from '../LandingPage/LandingPage'
 import UserLandingPage from '../UserLanding/UserLandingPage';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import { MemoryContext } from '../MemoryContext';
-// import Faker from 'faker';
 import './App.css';
 
 export default class App extends Component {

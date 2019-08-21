@@ -138,7 +138,6 @@ constructor(props) {
       memory_date: e.target['memory-date'].value,
       date_updated: new Date().toDateString(),
     }
-    debugger
     fetch(`${API_BASE_URL}/memories`, {
       method: 'POST',
       headers: {

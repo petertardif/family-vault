@@ -1,0 +1,31 @@
+
+.Navbar {
+  background-color: #101732;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  box-shadow: 1px 1.5px 3px #000000;
+}
+
+.Navbar__Icon > a {
+  color: #c50824;
+  font-family: 'Baloo', cursive;
+  font-size: 40px;
+  margin: 0 auto; 
+  text-decoration: none;
+}
+
+.Navbar__Listitems > a {
+  color: #fefefe;
+  text-decoration: none;
+}
+
+.Navbar__Listitems > a:hover {
+  color: rgba(197, 8, 36, 0.9);
+  text-decoration: none;
+}

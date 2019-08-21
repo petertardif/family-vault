@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
+import './Navbar.css';
 
 export default class Navbar extends Component {
   render() {
     return (
       <>
-        <nav role="navigation">
+        <nav className='Navbar' role="navigation">
           <div>
-            <h1>FV</h1>
+            <h1 className='Navbar__Icon'><Link to='/'>FV</Link> </h1>
           </div>
           <ul>
             {/* <li><button id="myBtn">Sign up / Log in</button></li> */}
-            <li><Button tag={Link} to='/userlanding' type='button' className='Navbar_tour-button'
-          >Demo</Button></li>
+            <li className='Navbar__Listitems'><Link to='/userlanding'>Demo</Link></li>
           </ul>
         </nav>
       </>

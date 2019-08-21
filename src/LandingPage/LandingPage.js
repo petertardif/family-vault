@@ -1,20 +1,29 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
+import './LandingPage.css'
 
 export default class LandingPage extends Component {
   render() {
     return (
       <div>
-        <header role="banner">
-          <h1>Family Vault</h1>
+        <section className='bgimg-1'>
+          <div>
+            <div className='caption'>
+              <span className='border'>SCROLL DOWN</span>
+            </div>
+          </div>
+          
+        </section>
+        <header role="banner" >
+          <h1 className='LandingPage__title'>Family Vault</h1>
           <h4>Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.</h4>
           <Button tag={Link} to='/userlanding' type='button' className='LandingPage_tour-button'
           >Tour a Vault!</Button>
         </header>
 
         {/* FEATURES OF THE APP */}
-        <section>
+        <section className='bgimg-2 section-2'>
           <h2>Never miss another moment</h2> 
           <ul>
             <li>Use audio notes to capture the moments and memories</li>
@@ -36,7 +45,7 @@ export default class LandingPage extends Component {
         </section>
 
         {/* WHY WOULD SOMEONE USE THIS APP AND NOT OTHERS? */}
-        <section>
+        <section className='bgimg-3'>
           <h2>Why Family Vault?</h2>
           <ul>
             <li>Easy to create and share only what you want</li>
@@ -51,7 +60,7 @@ export default class LandingPage extends Component {
           <button>Sign Up Now!</button>
         </section>
         
-        <section>
+        <section className='bgimg-4'>
           <img src="" alt="" />
           <h2>Family Vault</h2>
           <h3>Forever cherish your family's precious moments!</h3>

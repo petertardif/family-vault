@@ -4,6 +4,7 @@ import Toggle from '../Toggle/Toggle';
 import { API_BASE_URL } from '../config';
 import './Memory.css';
 import { MemoryContext } from '../MemoryContext';
+import './Memory.css';
 
 class Memory extends Component {
   // static defaultProps = {

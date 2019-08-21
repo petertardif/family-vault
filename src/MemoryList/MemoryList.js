@@ -4,6 +4,7 @@ import Memory from '../Memory/Memory';
 import Button from '../Button/Button';
 import { MemoryContext } from '../MemoryContext';
 import './MemoryList'
+import '../Button/Button.css';
 
 export default class MemoryList extends Component {
   static defaultProps = {
@@ -17,7 +18,6 @@ export default class MemoryList extends Component {
   static contextType = MemoryContext;
   
   componentWillMount() {
-    debugger
       fetch(`https://agile-fortress-94521.herokuapp.com/api/memories`)
       // fetch(`https://agile-fortress-94521.herokuapp.com/api/family-members`)
       
@@ -50,8 +50,7 @@ export default class MemoryList extends Component {
           )}
         </ul>
         <section className='buttons'>
-          <Button tag={Link} to='/userlanding' type='button' className='UserLandingPage_back-button'
-          >Back to home page</Button>
+          <button className='Button blue'><Link to='/userlanding'>Back to home page</Link> </button>
         </section>
       </section>
     );
