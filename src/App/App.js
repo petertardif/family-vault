@@ -13,6 +13,7 @@ import './App.css';
 
 export default class App extends Component {
   state = {
+    on: false,
     memories: [],
     familyMembers: [],
     error: null,
@@ -76,8 +77,16 @@ export default class App extends Component {
     })
   }
 
+  toggle = () => {
+    this.setState({
+      on: !this.state.on
+    });
+  };
+
   render(){
     const contextMemoriesValue = {
+      on: this.state.on,
+      toggle: this.toggle,
       memories: this.state.memories,
       familyMembers: this.state.familyMembers,
       addMemory: this.handleAddMemory,
