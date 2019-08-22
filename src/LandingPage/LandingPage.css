@@ -36,6 +36,15 @@
   color: #c50824;
 }
 
+.article_wrapper {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #FBFCFC;
+    opacity: 0.8;
+    border-radius: 13px;
+    padding: 0.5em;
+}
+
 .caption {
   position: absolute;
   left: 0;
@@ -43,7 +52,9 @@
   width: 100%;
   text-align: center;
   color: #000;
+  display: inline-block;
 }
+
 
 .caption span.border {
   background-color: #111;
@@ -52,4 +63,30 @@
   font-size: 25px;
   letter-spacing: 10px;
   text-align: center;
+  border-radius: 3px;
+}
+
+.chevron {
+  position: relative;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 4em;
+  text-align: center;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  opacity: 0.75;
+}
+
+.chevron:hover {
+  color: #c50824;
+}
+
+.grow:hover
+{
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
 }

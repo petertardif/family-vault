@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 30px;
-  box-shadow: 1px 1.5px 3px #000000;
+  box-shadow: 0px 1.5px 3px #000000;
 }
 
 .Navbar__Icon > a {

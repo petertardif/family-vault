@@ -50,7 +50,7 @@ export default class MemoryList extends Component {
           )}
         </ul>
         <section className='buttons'>
-          <button className='Button blue'><Link to='/userlanding'>Back to home page</Link> </button>
+          <button className='Button blue'><Link to='/userlanding'>Back to home page</Link></button>
         </section>
       </section>
     );

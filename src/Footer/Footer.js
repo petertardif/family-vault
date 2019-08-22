@@ -5,8 +5,8 @@ export default class Footer extends Component {
   render() {
     return (
       <>
-        <footer>
-          <ul>
+        <footer className='footer'>
+          <ul className='footer_listitems'>
             <li>About</li>
             <li>Terms of Use</li>
           </ul>

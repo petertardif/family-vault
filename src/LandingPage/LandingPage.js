@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './LandingPage.css'
 
 export default class LandingPage extends Component {
@@ -8,62 +9,71 @@ export default class LandingPage extends Component {
     return (
       <div>
         <section className='bgimg-1'>
-          <div>
-            <div className='caption'>
-              <span className='border'>SCROLL DOWN</span>
-            </div>
-          </div>
-          
+          <article className='caption'>
+            <span className='border'>Family Vault </span>
+            <a href='#header' className='chevron grow'><FontAwesomeIcon icon='chevron-down' size="3x"/></a>
+          </article>
         </section>
-        <header role="banner" >
-          <h1 className='LandingPage__title'>Family Vault</h1>
-          <h4>Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.</h4>
-          <Button tag={Link} to='/userlanding' type='button' className='LandingPage_tour-button'
-          >Tour a Vault!</Button>
+        <header id='header' role="banner" >
+          <article className='article_wrapper'>
+            {/* <h1 className='LandingPage__title'>Family Vault</h1> */}
+            <h2>Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.</h2>
+            <Button tag={Link} to='/userlanding' type='button' className='LandingPage_tour-button'
+            >Get Started</Button>
+          </article>
         </header>
 
         {/* FEATURES OF THE APP */}
         <section className='bgimg-2 section-2'>
-          <h2>Never miss another moment</h2> 
-          <ul>
-            <li>Use audio notes to capture the moments and memories</li>
-            <li>Attach images or videos</li>
-            <li>Write letters to deliver in the future</li>
-          </ul>
+          <article className='article_wrapper'>
+            <h2>Never miss another moment</h2> 
+            <ul>
+              <li>Use audio notes to capture the moments and memories</li>
+              <li>Attach images or videos</li>
+              <li>Write letters to deliver in the future</li>
+            </ul>
+          </article>
         </section>
 
         {/* HOW DOES IT WORK? */}
         <section>
-          <h2>How it works</h2>
-          <ul>
-            <li>Create a vault</li>
-            <li>Add in your recipients</li>
-            <li>Add memories of audio or text notes, images, videos, letters, or recordings and attach to your recipient</li>
-            <li>Share with others or add collaborators</li>
-            <li>Determine when to reveal content with your family</li>
-          </ul>
+          <article className='article_wrapper'>
+            <h2>How it works</h2>
+            <ul>
+              <li>Create a vault</li>
+              <li>Add in your recipients</li>
+              <li>Add memories of audio or text notes, images, videos, letters, or recordings and attach to your recipient</li>
+              <li>Share with others or add collaborators</li>
+              <li>Determine when to reveal content with your family</li>
+            </ul>
+          </article>
         </section>
 
         {/* WHY WOULD SOMEONE USE THIS APP AND NOT OTHERS? */}
         <section className='bgimg-3'>
-          <h2>Why Family Vault?</h2>
-          <ul>
-            <li>Easy to create and share only what you want</li>
-            <li>Be the CEO - privately own and operate</li>
-            <li>Multimedia memories to give to your children</li>
-            <li>Secure and Unlimited data</li>
-          </ul>
+          <article className='article_wrapper'>
+            <h2>Why Family Vault?</h2>
+            <ul>
+              <li>Easy to create and share only what you want</li>
+              <li>Be the CEO - privately own and operate</li>
+              <li>Multimedia memories to give to your children</li>
+              <li>Secure and Unlimited data</li>
+            </ul>
+          </article>
         </section>
 
         <section>
-          <h2>Never miss another moment</h2>
-          <button>Sign Up Now!</button>
+          <article className='article_wrapper'>
+            <h2>Never miss another moment</h2>
+            {/* <button>Sign Up Now!</button> */}
+          </article>
         </section>
         
         <section className='bgimg-4'>
-          <img src="" alt="" />
-          <h2>Family Vault</h2>
-          <h3>Forever cherish your family's precious moments!</h3>
+          <article className='article_wrapper'>
+            <h2 className='LandingPage__title'>Family Vault</h2>
+            <h3>Forever cherish your family's precious moments!</h3>
+          </article>
         </section>
       </div>
     )

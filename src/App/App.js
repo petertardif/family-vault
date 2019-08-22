@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import MemoryList from '../MemoryList/MemoryList';
