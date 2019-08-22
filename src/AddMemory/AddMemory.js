@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import MemoryForm from '../MemoryForm/MemoryForm';
 import { MemoryContext } from '../MemoryContext';
 import './AddMemory.css';
-import Button from '../Button/Button';
 import { API_BASE_URL } from '../config';
 
 class AddMemory extends Component {
@@ -159,6 +158,9 @@ constructor(props) {
       })
   }
 
+  handleClickGoBack = () => {
+    this.props.history.push('/userlanding');
+  } 
   render() {
     const { familyMembers = [] } = this.context;
     
@@ -204,11 +206,10 @@ constructor(props) {
             <input type='date' id='memory-date-input' name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
           </div>
           <div className='buttons'>
-            <button type='submit' disabled={!this.state.formValid}>
+            <button type='submit' disabled={!this.state.formValid} className='Button'>
               Add memory
             </button>
-            <Button tag={Link} to='/userlanding' type='button' className='AddMemory_back-button'
-            >Back</Button>
+            <button onClick={this.handleClickGoBack} className='Button'>Back</button>
           </div>
         </MemoryForm>
       </section>

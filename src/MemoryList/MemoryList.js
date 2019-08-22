@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Memory from '../Memory/Memory';
-import Button from '../Button/Button';
 import { MemoryContext } from '../MemoryContext';
 import './MemoryList'
 import '../Button/Button.css';
 
-export default class MemoryList extends Component {
+class MemoryList extends Component {
   static defaultProps = {
     memories: [],
     familyMembers: [],
@@ -37,6 +36,10 @@ export default class MemoryList extends Component {
       })
   }
 
+  handleClick = () => {
+    this.props.history.push('/userlanding');
+  }
+
   render() {
     return (
       <section className='MemoryList'>
@@ -50,9 +53,11 @@ export default class MemoryList extends Component {
           )}
         </ul>
         <section className='buttons'>
-          <button className='Button blue'><Link to='/userlanding'>Back to home page</Link></button>
+          <button onClick={this.handleClick} className='Button blue'>Back to home page</button>
         </section>
       </section>
     );
   }
 }
+
+export default withRouter(MemoryList);

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import Button from '../Button/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './LandingPage.css'
 
 export default class LandingPage extends Component {
+  handleClickUserLanding = () => {
+    this.props.history.push('/userlanding');
+  }
+
   render() {
     return (
       <div>
@@ -18,8 +20,7 @@ export default class LandingPage extends Component {
           <article className='article_wrapper'>
             {/* <h1 className='LandingPage__title'>Family Vault</h1> */}
             <h2>Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.</h2>
-            <Button tag={Link} to='/userlanding' type='button' className='LandingPage_tour-button'
-            >Get Started</Button>
+            <button onClick={this.handleClickUserLanding} className='Button'>Get Started</button>
           </article>
         </header>
 

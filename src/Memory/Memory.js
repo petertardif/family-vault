@@ -87,8 +87,8 @@ class Memory extends Component {
   }
 }
 
-Memory.defaultProps = {
-  onClickDelete: () => {},
-}
+// Memory.defaultProps = {
+//   onClickDelete: () => {},
+// }
 
 export default withRouter(Memory);

@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
+import { withRouter } from 'react-router-dom';
 
-export default class UserLandingPage extends Component {
+class UserLandingPage extends Component {
+
+handleClickAddMemory = () => {
+  this.props.history.push('/add-memory');
+}
+
+handleClickGoBack = () => {
+  this.props.history.push('/memorylist');
+}
+
   render() {
     return (
       <>
         <header>
           <h1>Create and forever cherish the moments!</h1>
         </header>
-        <Button
-          tag={Link}
-          to='/add-memory'
-          type='button'
-          className='UserLandingPage_add-memory-button'
-        >
-          Add a Memory
-        </Button>
-        <Button
-          tag={Link}
-          to='/memorylist'
-          type='button'
-          className='UserLandingPage_add-memory-button'
-        >
-          Preview Memory Page
-        </Button>
+        <button onClick={this.handleClickAddMemory} className='Button blue'>Add a Memory</button>
+        <button onClick={this.handleClickGoBack} className='Button blue'>Preview Memory Page</button>
       </>
     )
   }
 }
+
+export default withRouter(UserLandingPage);
