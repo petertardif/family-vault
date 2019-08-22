@@ -10,7 +10,7 @@ export default class Navbar extends Component {
           <div>
             <h1 className='Navbar__Icon'><Link to='/'>FV</Link> </h1>
           </div>
-          <ul>
+          <ul className={'Navbar__Ul'}>
             {/* <li><button id="myBtn">Sign up / Log in</button></li> */}
             <li className='Navbar__Listitems'><Link to='/userlanding'>Demo</Link></li>
           </ul>

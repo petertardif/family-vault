@@ -206,10 +206,10 @@ constructor(props) {
             <input type='date' id='memory-date-input' name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
           </div>
           <div className='buttons'>
-            <button type='submit' disabled={!this.state.formValid} className='Button'>
+            <button type='submit' disabled={!this.state.formValid} className='Button blue'>
               Add memory
             </button>
-            <button onClick={this.handleClickGoBack} className='Button'>Back</button>
+            <button onClick={this.handleClickGoBack} className='Button blue'>Back</button>
           </div>
         </MemoryForm>
       </section>

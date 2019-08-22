@@ -1,6 +1,6 @@
 
 .Navbar {
-  background-color: #101732;
+  background-color: rgb(20,33,66);
   position: fixed;
   top: 0;
   left: 0;
@@ -20,8 +20,15 @@
   text-decoration: none;
 }
 
+.Navbar__Ul {
+  display: flex;
+  align-items: center;
+}
+
 .Navbar__Listitems > a {
   color: #fefefe;
+  display: flex;
+  align-items: center;
   text-decoration: none;
 }
 

@@ -1,0 +1,11 @@
+.Memory_card {
+    width: 25%;
+    margin: 5px auto;
+    /* background-color: green; */
+    opacity: 0.8;
+    border-radius: 13px;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    border: 1px gray solid;
+}

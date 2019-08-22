@@ -99,7 +99,7 @@ export default class App extends Component {
     return (
       <>
         <Navbar />
-        <main className='App'>
+        <main className=' main'>
           <MemoryContext.Provider value={contextMemoriesValue}>
             <Switch>
               <Route 

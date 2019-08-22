@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Memory from '../Memory/Memory';
 import { MemoryContext } from '../MemoryContext';
-import './MemoryList'
+import './MemoryList.css'
 import '../Button/Button.css';
 
 class MemoryList extends Component {

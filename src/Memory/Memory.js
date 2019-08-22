@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Toggle from '../Toggle/Toggle';
 import { API_BASE_URL } from '../config';
-import './Memory.css';
+import '../MemoryList/MemoryList.css';
 import { MemoryContext } from '../MemoryContext';
 import './Memory.css';
 
@@ -40,6 +40,7 @@ class Memory extends Component {
   render() {
     return (
       <li key={this.props.id} className='Memory'>
+        <article className='Memory_card'>
         <div className='Memory_row'>
           <h2 className='Memory_title'>
             <Link to={`/memory/${this.props.id}`}>
@@ -82,6 +83,7 @@ class Memory extends Component {
             )}
           </Toggle>
         </div>
+        </article>
       </li>
     )
   }
