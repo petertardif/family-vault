@@ -1,0 +1,28 @@
+.memory-form {
+  /* background-color: #1d3656; */
+  /* color: #dedede; */
+  padding: 16px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+}
+
+.memory-form label {
+  display: block;
+  font-size: 18px;
+  padding-bottom: 8px;
+}
+
+.memory-form input,
+.memory-form textarea,
+.memory-form select {
+  font-size: 14px;
+  padding: 15px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
+.memory-form select {
+  height: 33px;
+}

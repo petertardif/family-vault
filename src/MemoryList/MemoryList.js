@@ -43,15 +43,15 @@ class MemoryList extends Component {
   render() {
     return (
       <section className='MemoryList'>
-        <h2>Memories</h2> 
-        <ul className='MemoryList_list' aria-live='polite'>
+        <h2 className='Memorylist__title'>Memories</h2> 
+        <section className='MemoryList_list' aria-live='polite'>
           {this.context.memories.map(memory =>
             <Memory
               key={memory.id}
               {...memory}
             />
           )}
-        </ul>
+        </section>
         <section className='buttons'>
           <button onClick={this.handleClick} className='Button blue'>Back to home page</button>
         </section>

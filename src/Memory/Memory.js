@@ -5,6 +5,7 @@ import { API_BASE_URL } from '../config';
 import '../MemoryList/MemoryList.css';
 import { MemoryContext } from '../MemoryContext';
 import './Memory.css';
+import '../Button/Button.css'
 
 class Memory extends Component {
   // static defaultProps = {
@@ -38,53 +39,55 @@ class Memory extends Component {
   
 
   render() {
+    const dateFormatted = new Date(this.props.memory_date).toDateString();
+
     return (
-      <li key={this.props.id} className='Memory'>
-        <article className='Memory_card'>
-        <div className='Memory_row'>
-          <h2 className='Memory_title'>
-            <Link to={`/memory/${this.props.id}`}>
-              {this.props.memory_title}
-              </Link>
-          </h2>
-          <div className='Memory_dates'>
-            <div className='Memory_dates-modified'>
-                Modified <span className='Date'>{this.props.memory_date}</span> 
+      <article key={this.props.id} className='Memory'>
+        <div>
+          <div className='Memory_row'>
+            <h2 className='Memory_title'>
+              <Link to={`/memory/${this.props.id}`}>
+                {this.props.memory_title}
+                </Link>
+            </h2>
+            <div className='Memory_dates'>
+              <div className='Memory_dates-modified'>
+                  Modified: <span className='Date'>{dateFormatted}</span> 
+              </div>
             </div>
+            <Toggle>
+              {({ on, toggle }) => (
+                <>
+                  {on && 
+                    <>
+                      <img src={this.props.media_url} alt={`supporting visual for ${this.props.title}`}/>
+                      <p className='Memory_description'>
+                        {this.props.memory_desc}
+                      </p>
+                      <div className='Memory_buttons'>
+                        {/* <button
+                          className='Btn_memory_edit'
+                          // onClick={() => props.onClickEdit(props.id)}
+                        >
+                          Edit
+                        </button> */}
+                        <button
+                          className='Button fire-red'
+                          type='button'
+                          onClick={this.handleDeleteRequest}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </>
+                  }
+                  <button className='smallButton grey' onClick={toggle}>Expand / Collapse</button>
+                </>
+              )}
+            </Toggle>
           </div>
-          <Toggle>
-            {({ on, toggle }) => (
-              <>
-                {on && 
-                  <>
-                    <img src={this.props.media_url} alt={`supporting visual for ${this.props.title}`}/>
-                    <p className='Memory_description'>
-                      {this.props.memory_desc}
-                    </p>
-                    <div className='Memory_buttons'>
-                      {/* <button
-                        className='Btn_memory_edit'
-                        // onClick={() => props.onClickEdit(props.id)}
-                      >
-                        Edit
-                      </button> */}
-                      <button
-                        type='button'
-                        className='Btn_memory_delete'
-                        onClick={this.handleDeleteRequest}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </>
-                }
-                <button onClick={toggle}>Expand / Collapse</button>
-              </>
-            )}
-          </Toggle>
         </div>
-        </article>
-      </li>
+      </article>
     )
   }
 }

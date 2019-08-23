@@ -13,13 +13,15 @@ handleClickGoBack = () => {
 
   render() {
     return (
-      <>
-        <header>
+      <div className='userlandingpage-header'>
+        <header >
           <h1>Create and forever cherish the moments!</h1>
         </header>
-        <button onClick={this.handleClickAddMemory} className='Button blue'>Add a Memory</button>
-        <button onClick={this.handleClickGoBack} className='Button blue'>Preview Memory Page</button>
-      </>
+        <section>
+          <button onClick={this.handleClickAddMemory} className='Button blue'>Add a Memory</button>
+          <button onClick={this.handleClickGoBack} className='Button blue'>Preview Memory Page</button>
+        </section>
+      </div>
     )
   }
 }

@@ -1,10 +1,11 @@
 
 header {
-  padding: 15% 5% 5px 5%;
+  padding-top: 150px;
 }
 
 section {
-  padding: 15% 0;
+  padding: 150px 20px 150px 20px;
   background-color: #FEFEFE;
+  background-image: url('../subtle_grunge.png');
 }
 

@@ -2,6 +2,10 @@
   font-family: 'Baloo', cursive;
 }
 
+.landingpage-header {
+  margin: 150px auto;
+}
+
 .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
   position: relative;
   opacity: 0.65;

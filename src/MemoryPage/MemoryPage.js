@@ -23,7 +23,7 @@ export default class MemoryPage extends Component {
       <section>
         {filteredMemory}
         <section className='buttons'>
-          <button onClick={this.handleClickGoBack} className='Button'>Back</button>
+          <button onClick={this.handleClickGoBack} className='Button blue'>Back</button>
         </section>
       </section>
     )    

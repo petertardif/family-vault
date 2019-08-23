@@ -165,54 +165,56 @@ constructor(props) {
     const { familyMembers = [] } = this.context;
     
     return (
-      <section>
-        <h1>New Memory</h1>
-        <MemoryForm onSubmit={e => this.handleSubmit(e)}>
-          <div className='field'>
-            <label htmlFor='memory-title-input'>
-              Memory Title
-            </label>
-            <input type='text' id='memory-title-input' name='memory-title' onChange={e => this.updateMemoryTitle(e.target.value)} />
-          </div>
-          <div className='field'>
-            <label htmlFor='memory-description-input'>
-              Describe it
-            </label>
-            <textarea id='memory-description-input' name='memory-description' onChange={e => this.updateMemoryDescription(e.target.value)} />
-          </div>
-          <div className='field'>
-            <label htmlFor='family-member-select'>
-              Family Member
-            </label>
-            <select id='family-member-select' name='family-member-id' onChange={e => this.updateFamilyMember(e.target.value)}>
-              <option value="empty">...</option>
-              {familyMembers.map(fm =>
-                <option key={fm.id} value={fm.id}>
-                  `{fm.first_name} {fm.last_name}`
-                </option>
-              )}
-            </select>
-          </div>
-          <div className='field'>
-            <label htmlFor='memory-media-input'>
-              Attach an image or video
-            </label>
-            <input type='file' id='memory-media-input' name='memory-media' onChange={e => this.updateMemoryMedia(e.target.value)} />
-          </div>
-          <div className='field'>
-            <label htmlFor='memory-date-input'>
-              Date
-            </label>
-            <input type='date' id='memory-date-input' name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
-          </div>
-          <div className='buttons'>
-            <button type='submit' disabled={!this.state.formValid} className='Button blue'>
-              Add memory
-            </button>
-            <button onClick={this.handleClickGoBack} className='Button blue'>Back</button>
-          </div>
-        </MemoryForm>
-      </section>
+      <div>
+        <section className='add-memory-container'>
+          <h1>New Memory</h1>
+          <MemoryForm onSubmit={e => this.handleSubmit(e)}>
+            <div className='add-memory-form '>
+              <label htmlFor='memory-title-input'>
+                Name it
+              </label>
+              <input type='text' id='memory-title-input' name='memory-title' onChange={e => this.updateMemoryTitle(e.target.value)} />
+            </div>
+            <div className='add-memory-form '>
+              <label htmlFor='memory-description-input'>
+                Describe it
+              </label>
+              <textarea id='memory-description-input' name='memory-description' onChange={e => this.updateMemoryDescription(e.target.value)} />
+            </div>
+            <div className='add-memory-form '>
+              <label htmlFor='family-member-select'>
+                Family Member
+              </label>
+              <select id='family-member-select' name='family-member-id' onChange={e => this.updateFamilyMember(e.target.value)}>
+                <option value="empty">...</option>
+                {familyMembers.map(fm =>
+                  <option key={fm.id} value={fm.id}>
+                    `{fm.first_name} {fm.last_name}`
+                  </option>
+                )}
+              </select>
+            </div>
+            <div className='add-memory-form '>
+              <label htmlFor='memory-media-input'>
+                Add pic/video
+              </label>
+              <input type='file' id='memory-media-input' name='memory-media' onChange={e => this.updateMemoryMedia(e.target.value)} />
+            </div>
+            <div className='add-memory-form '>
+              <label htmlFor='memory-date-input'>
+                Date
+              </label>
+              <input type='date' id='memory-date-input' name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
+            </div>
+          </MemoryForm>
+        </section>
+        <div className='buttons add-memory-buttons'>
+          <button type='submit' disabled={!this.state.formValid} className='Button blue'>
+            Add memory
+          </button>
+          <button onClick={this.handleClickGoBack} className='Button blue'>Back</button>
+        </div>
+      </div>
     )
   }
 }

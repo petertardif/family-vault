@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemoryList component renders a .MemoryList by default 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`MemoryList component renders a Memory in ul for each memory in array 1`] = `null`;

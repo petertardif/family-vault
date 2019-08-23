@@ -10,6 +10,29 @@
   color: white;
  }
 
+ .smallButton {
+  margin: 30px;
+  font-size: 14px;
+  height: 35px;
+  width: 150px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 1px 0px 2px rgba (0,0,0,0.3);
+  color: white;
+ }
+
  .blue {
   background-color: rgb(20, 18, 113);
+ }
+
+ .red {
+  background-color: #c50824;
+ }
+
+ .fire-red {
+   background-color: red;
+ }
+ 
+ .grey {
+   background-color: gray
  }

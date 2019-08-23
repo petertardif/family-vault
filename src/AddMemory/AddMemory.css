@@ -1,0 +1,56 @@
+.add-memory-container {
+    width: 50%;
+    margin: 200px auto 10px auto;
+    opacity: 0.8;
+    border-radius: 13px;
+    padding: 1em;
+    min-width: 300px;
+    border: 1px solid grey;
+}
+
+.add-memory-form input,
+.add-memory-form textarea,
+.add-memory-form select {
+  font-size: 14px;
+  padding: 8px;
+  width: 75%;
+  /* min-width: 200px; */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #444;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid lightgrey;
+    padding:5px;
+    visibility: visible !important;
+}
+
+mobile styles
+@media only screen and (min-width: 350px) {
+  .add-memory-container {
+    width: 50%;
+    margin: 200px auto 10px auto;
+    opacity: 0.8;
+    border-radius: 13px;
+    padding: 1em;
+    /* min-width: 300px; */
+    border: 1px solid grey;
+
+}
+
+  .add-memory-form input,
+  .add-memory-form textarea,
+  .add-memory-form select {
+    font-size: 14px;
+    padding: 8px;
+    width: 350px;
+  }
+}

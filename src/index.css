@@ -17,6 +17,7 @@ body {
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('./subtle_grunge.png');
 }
 
 a {

@@ -6,7 +6,7 @@ export default class MemoryForm extends Component {
     const { className, ...otherProps } =this.props
     return (
       <form
-        className={['Memory-form', className].join(' ')}
+        className={['memory-form', className].join(' ')}
         action='#'
         {...otherProps}
       />

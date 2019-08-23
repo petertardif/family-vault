@@ -16,11 +16,11 @@ export default class LandingPage extends Component {
             <a href='#header' className='chevron grow'><FontAwesomeIcon icon='chevron-down' size="3x"/></a>
           </article>
         </section>
-        <header id='header' role="banner" >
+        <header id='header' role='banner' className='landingpage-header'>
           <article className='article_wrapper'>
             {/* <h1 className='LandingPage__title'>Family Vault</h1> */}
             <h2>Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.</h2>
-            <button onClick={this.handleClickUserLanding} className='Button'>Get Started</button>
+            <button onClick={this.handleClickUserLanding} className='Button red'>Get Started</button>
           </article>
         </header>
 
