@@ -214,7 +214,6 @@ constructor(props) {
             </div>
           </MemoryForm>
         </section>
-        
       </div>
     )
   }
