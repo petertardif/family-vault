@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './LandingPage.css'
+import '../Button/Button.css'
 
 export default class LandingPage extends Component {
   handleClickUserLanding = () => {
