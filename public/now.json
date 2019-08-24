@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": "family-vault-petertardif",
   "name": "family-vault",
   "routes": [
       {
