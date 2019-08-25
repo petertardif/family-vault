@@ -2,100 +2,158 @@
 
 exports[`LandingPage component renders a .LandingPage by default 1`] = `
 <div>
+  <section
+    className="bgimg-1"
+  >
+    <article
+      className="caption"
+    >
+      <span
+        className="border"
+      >
+        Family Vault 
+      </span>
+      <a
+        className="chevron grow"
+        href="#header"
+      >
+        <FontAwesomeIcon
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon="chevron-down"
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size="3x"
+          spin={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+      </a>
+    </article>
+  </section>
   <header
+    className="landingpage-header"
+    id="header"
     role="banner"
   >
-    <h1>
-      Family Vault
-    </h1>
-    <h4>
-      Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.
-    </h4>
-    <Button
-      className="LandingPage_tour-button"
-      tag={[Function]}
-      to="/userlanding"
-      type="button"
+    <article
+      className="article_wrapper"
     >
-      Tour a Vault!
-    </Button>
+      <h2>
+        Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.
+      </h2>
+      <button
+        className="Button red"
+        onClick={[Function]}
+      >
+        Get Started
+      </button>
+    </article>
   </header>
-  <section>
-    <h2>
-      Never miss another moment
-    </h2>
-    <ul>
-      <li>
-        Use audio notes to capture the moments and memories
-      </li>
-      <li>
-        Attach images or videos
-      </li>
-      <li>
-        Write letters to deliver in the future
-      </li>
-    </ul>
+  <section
+    className="bgimg-2 section-2"
+  >
+    <article
+      className="article_wrapper"
+    >
+      <h2>
+        Never miss another moment
+      </h2>
+      <ul>
+        <li>
+          Use audio notes to capture the moments and memories
+        </li>
+        <li>
+          Attach images or videos
+        </li>
+        <li>
+          Write letters to deliver in the future
+        </li>
+      </ul>
+    </article>
   </section>
   <section>
-    <h2>
-      How it works
-    </h2>
-    <ul>
-      <li>
-        Create a vault
-      </li>
-      <li>
-        Add in your recipients
-      </li>
-      <li>
-        Add memories of audio or text notes, images, videos, letters, or recordings and attach to your recipient
-      </li>
-      <li>
-        Share with others or add collaborators
-      </li>
-      <li>
-        Determine when to reveal content with your family
-      </li>
-    </ul>
+    <article
+      className="article_wrapper"
+    >
+      <h2>
+        How it works
+      </h2>
+      <ul>
+        <li>
+          Create a vault
+        </li>
+        <li>
+          Add in your recipients
+        </li>
+        <li>
+          Add memories of audio or text notes, images, videos, letters, or recordings and attach to your recipient
+        </li>
+        <li>
+          Share with others or add collaborators
+        </li>
+        <li>
+          Determine when to reveal content with your family
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section
+    className="bgimg-3"
+  >
+    <article
+      className="article_wrapper"
+    >
+      <h2>
+        Why Family Vault?
+      </h2>
+      <ul>
+        <li>
+          Easy to create and share only what you want
+        </li>
+        <li>
+          Be the CEO - privately own and operate
+        </li>
+        <li>
+          Multimedia memories to give to your children
+        </li>
+        <li>
+          Secure and Unlimited data
+        </li>
+      </ul>
+    </article>
   </section>
   <section>
-    <h2>
-      Why Family Vault?
-    </h2>
-    <ul>
-      <li>
-        Easy to create and share only what you want
-      </li>
-      <li>
-        Be the CEO - privately own and operate
-      </li>
-      <li>
-        Multimedia memories to give to your children
-      </li>
-      <li>
-        Secure and Unlimited data
-      </li>
-    </ul>
+    <article
+      className="article_wrapper"
+    >
+      <h2>
+        Never miss another moment
+      </h2>
+    </article>
   </section>
-  <section>
-    <h2>
-      Never miss another moment
-    </h2>
-    <button>
-      Sign Up Now!
-    </button>
-  </section>
-  <section>
-    <img
-      alt=""
-      src=""
-    />
-    <h2>
-      Family Vault
-    </h2>
-    <h3>
-      Forever cherish your family's precious moments!
-    </h3>
+  <section
+    className="bgimg-4"
+  >
+    <article
+      className="article_wrapper"
+    >
+      <h2
+        className="LandingPage__title"
+      >
+        Family Vault
+      </h2>
+      <h3>
+        Forever cherish your family's precious moments!
+      </h3>
+    </article>
   </section>
 </div>
 `;

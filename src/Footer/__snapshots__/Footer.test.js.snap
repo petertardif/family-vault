@@ -2,8 +2,12 @@
 
 exports[`Footer component renders a .Footer by default 1`] = `
 <Fragment>
-  <footer>
-    <ul>
+  <footer
+    className="footer"
+  >
+    <ul
+      className="footer_listitems"
+    >
       <li>
         About
       </li>

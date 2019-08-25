@@ -3,14 +3,14 @@
 exports[`MemoryForm component renders a form.MemoryForm by default 1`] = `
 <form
   action="#"
-  className="Memory-form "
+  className="memory-form "
 />
 `;
 
 exports[`MemoryForm component renders the MemoryForm given props 1`] = `
 <form
   action="#"
-  className="Memory-form test-class-name"
+  className="memory-form test-class-name"
   data-other="test-other-prop"
 >
   <p>
