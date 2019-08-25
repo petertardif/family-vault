@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export default class Footer extends Component {
@@ -7,8 +8,8 @@ export default class Footer extends Component {
       <>
         <footer className='footer'>
           <ul className='footer_listitems'>
-            <li>About</li>
-            <li>Terms of Use</li>
+            <li><Link to='/about'>About</Link></li>
+            <li><Link to='/terms'>Terms of Use</Link></li>
           </ul>
         </footer>
       </>

@@ -16,6 +16,15 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: #c50824;
+}
+
 li {
   list-style-type: none; 
 }

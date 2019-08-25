@@ -8,6 +8,8 @@ import AddMemory from '../AddMemory/AddMemory';
 import LandingPage from '../LandingPage/LandingPage'
 import UserLandingPage from '../UserLanding/UserLandingPage';
 import PageNotFound from '../PageNotFound/PageNotFound';
+import About from '../About/About'
+import TermsOfUse from '../TermsOfUse/TermsOfUse';
 import { MemoryContext } from '../MemoryContext';
 import './App.css';
 
@@ -127,6 +129,14 @@ export default class App extends Component {
                   <AddMemory
                     {...this.state}
                   />}
+              />
+              <Route 
+                path='/about' 
+                component={About}
+              />
+              <Route 
+                path='/terms' 
+                component={TermsOfUse}
               />
               {/* THIS ROUTE BELOW MUST BE AT THE BOTTOM OR IT WILL ALWAYS RENDER */}
               <Route component={PageNotFound} /> 

@@ -161,6 +161,7 @@ constructor(props) {
   handleClickGoBack = () => {
     this.props.history.push('/userlanding');
   } 
+  
   render() {
     const { familyMembers = [] } = this.context;
     

@@ -1,0 +1,8 @@
+.article_wrapper {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #FBFCFC;
+  opacity: 0.8;
+  border-radius: 13px;
+  padding: 0.5em;
+}
