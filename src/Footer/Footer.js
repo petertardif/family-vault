@@ -8,8 +8,8 @@ export default class Footer extends Component {
       <>
         <footer className='footer'>
           <ul className='footer_listitems'>
-            <li><Link to='/about'>About</Link></li>
-            <li><Link to='/terms'>Terms of Use</Link></li>
+            <li><Link to='/about' className='footer_listitems'>About</Link></li>
+            <li><Link to='/terms' className='footer_listitems'>Terms of Use</Link></li>
           </ul>
         </footer>
       </>
