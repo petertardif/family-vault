@@ -21,11 +21,11 @@ This app helps capture memories by “Naming it,” “Describing it,” and “
 * [API Repo](https://github.com/petertardif/family-vault-api)
 
 ## Process
-* [User Stories, User Flows, Wireframes](https://docs.google.com/spreadsheets/d/1jFYYlrqykvHg_c2WdfyFHgDGYFy5_mFHzdWDL70umXk/edit#gid=0)
-* [Trello Board](https://trello.com/b/6haebPyh/family-vault)
-* [Feedback Form](https://forms.gle/MH7nSswBtdtVNDsg8)
-* [Presentation Slide Deck](https://docs.google.com/presentation/d/1raNObaBoo4JI54qna1jIhd0JXTsZXaJ-8_G5vSYjVwA/edit?usp=sharing)
-* [App Presentation](https://youtu.be/AkDsCauXJgs)
+1. [User Stories, User Flows, Wireframes](https://docs.google.com/spreadsheets/d/1jFYYlrqykvHg_c2WdfyFHgDGYFy5_mFHzdWDL70umXk/edit#gid=0)
+2. [Trello Board](https://trello.com/b/6haebPyh/family-vault)
+3. [Feedback Form](https://forms.gle/MH7nSswBtdtVNDsg8)
+4. [Presentation Slide Deck](https://docs.google.com/presentation/d/1raNObaBoo4JI54qna1jIhd0JXTsZXaJ-8_G5vSYjVwA/edit?usp=sharing)
+5. [App Presentation](https://youtu.be/AkDsCauXJgs)
 
 ## API Endpoints
 Base URL - https://agile-fortress-94521.herokuapp.com/
