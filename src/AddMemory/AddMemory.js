@@ -190,7 +190,7 @@ constructor(props) {
                 <option value="empty">...</option>
                 {familyMembers.map(fm =>
                   <option key={fm.id} value={fm.id}>
-                    `{fm.first_name} {fm.last_name}`
+                    {fm.first_name} {fm.last_name}
                   </option>
                 )}
               </select>

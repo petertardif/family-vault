@@ -20,7 +20,7 @@ export default class MemoryPage extends Component {
     );
 
     return (
-      <section>
+      <section className='container__top '>
         {filteredMemory}
         <section className='buttons'>
           <button onClick={this.handleClickGoBack} className='Button blue'>Back</button>

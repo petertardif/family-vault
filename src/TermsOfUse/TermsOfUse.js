@@ -9,7 +9,7 @@ export default class TermsOfUse extends Component {
   render() {
     return (
       <>
-        <section>
+        <section className='container__top'>
           <article className='article_wrapper'>
             <h2>Terms of Use of Family Vault</h2>
 

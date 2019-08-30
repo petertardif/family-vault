@@ -3,9 +3,17 @@ header {
   padding-top: 150px;
 }
 
-section {
-  padding: 150px 20px 150px 20px;
+.container__top {
+  padding-top: 150px;
+}
+
+.container {
+  padding: 50px 20px;
   background-color: #FEFEFE;
   background-image: url('../subtle_grunge.png');
+}
+
+.container__section {
+  padding: 150px 20px;
 }
 

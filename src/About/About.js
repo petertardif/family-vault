@@ -9,7 +9,7 @@ export default class About extends Component {
   render() {
     return (
       <>
-        <section>
+        <section className='container__top'>
           <article className='article_wrapper'>
             <h2>- Our Mission -</h2> 
             <h4>To provide the opportunity to remember the little things</h4>

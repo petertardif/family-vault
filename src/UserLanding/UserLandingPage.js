@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import './UserLandingPage.css';
 
 class UserLandingPage extends Component {
 
@@ -17,9 +18,9 @@ handleClickGoBack = () => {
         <header >
           <h1>Create and forever cherish the moments!</h1>
         </header>
-        <section>
+        <section className='userlandingpage-footer'>
           <button onClick={this.handleClickAddMemory} className='Button blue'>Add a Memory</button>
-          <button onClick={this.handleClickGoBack} className='Button blue'>Preview Memory Page</button>
+          <button onClick={this.handleClickGoBack} className='Button blue'>Memory Page</button>
         </section>
       </div>
     )

@@ -1,7 +1,5 @@
 .Memory {
-    /* width: 25%; */
     margin: 5px auto;
-    /* background-color: green; */
     opacity: 0.8;
     border-radius: 13px;
     padding: 1em;
@@ -10,14 +8,15 @@
     border: 1px gray solid;
 }
 
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 320px) {
     .Memory {
         width: 75%;
-        min-width: 350px
+        min-width: 300px;
+        padding: 10px;
     }
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 540px) {
     .Memory {
         width: 65%;
     }

@@ -19,7 +19,6 @@ export default class LandingPage extends Component {
         </section>
         <header id='header' role='banner' className='landingpage-header'>
           <article className='article_wrapper'>
-            {/* <h1 className='LandingPage__title'>Family Vault</h1> */}
             <h2>Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.</h2>
             <button onClick={this.handleClickUserLanding} className='Button red'>Get Started</button>
           </article>
@@ -38,7 +37,7 @@ export default class LandingPage extends Component {
         </section>
 
         {/* HOW DOES IT WORK? */}
-        <section>
+        <section className='container__section'>
           <article className='article_wrapper'>
             <h2>How it works</h2>
             <ul>
@@ -64,7 +63,7 @@ export default class LandingPage extends Component {
           </article>
         </section>
 
-        <section>
+        <section className="container__section">
           <article className='article_wrapper'>
             <h2>Never miss another moment</h2>
             {/* <button>Sign Up Now!</button> */}

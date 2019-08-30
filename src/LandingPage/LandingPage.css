@@ -13,6 +13,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 150px 20px;
+  
 }
 
 .bgimg-1 {
@@ -107,6 +109,33 @@
   color: white;
  }
 
+ @media only screen and (min-width: 320px) {
+  .article_wrapper {
+    width: 90%;
+  }
+
+  li {
+    text-align: left;
+  }
+
+  ul {
+    padding: 5px 7.5px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .article_wrapper {
+    width: 90%;
+  }
+
+  li {
+    text-align: left;
+  }
+
+  ul {
+    padding: 5px 7.5px;
+  }
+}
+
 @media only screen and (min-width: 550px) {
   .Button {
     margin: 30px;
@@ -118,4 +147,8 @@
     box-shadow: 1px 1px 0px 2px rgba (0,0,0,0.3);
     color: white;
    }
+
+   li {
+    text-align: center;
+  }
 }

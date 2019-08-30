@@ -1,4 +1,48 @@
 .userlandingpage-header {
-  padding-top: 150px;
+  padding-top: 100px;
   /* min-height: 50px; */
+}
+
+.userlandingpage-footer {
+  padding-bottom: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 320px) {
+  .userlandingpage-footer {
+    padding-bottom: 300px;
+    display: block;
+  }
+
+  .Button {
+    margin: 30px;
+    font-size: 14px;
+    height: 35px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 0px 2px rgba (0,0,0,0.3);
+    color: white;
+   }
+
+}
+
+@media only screen and (max-width: 540px) {
+
+  .userlandingpage-footer {
+    padding-bottom: 300px;
+    display: block;
+  }
+
+  .Button {
+    margin: 30px;
+    font-size: 18px;
+    height: 70px;
+    width: 250px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 0px 2px rgba (0,0,0,0.3);
+    color: white;
+   }
 }
