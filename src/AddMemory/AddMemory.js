@@ -133,10 +133,13 @@ constructor(props) {
       memory_title: e.target['memory-title'].value,
       memory_desc: e.target['memory-description'].value,
       familymember_id: e.target['family-member-id'].value,
-      media_url: "https://via.placeholder.com/150",
+      media_url: e.target['memory-media'].value,
+      // media_url: "https://via.placeholder.com/150",
       memory_date: e.target['memory-date'].value,
       date_updated: new Date().toDateString(),
     }
+    console.log(newMemory);
+    debugger;
     fetch(`${API_BASE_URL}/memories`, {
       method: 'POST',
       headers: {
@@ -164,6 +167,8 @@ constructor(props) {
   
   render() {
     const { familyMembers = [] } = this.context;
+    // variable below limits the user from selecting a date in the future.
+    const today = new Date().toISOString().substr(0, 10);
     
     return (
       <div>
@@ -205,7 +210,7 @@ constructor(props) {
               <label htmlFor='memory-date-input'>
                 Date
               </label>
-              <input type='date' id='memory-date-input' name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
+              <input type='date' id='memory-date-input' max={today} name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
             </div>
             <div className='buttons add-memory-buttons'>
               <button type='submit' disabled={!this.state.formValid} className='Button blue'>
