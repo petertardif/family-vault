@@ -60,7 +60,9 @@ class Memory extends Component {
                 <>
                   {on && 
                     <>
-                      <img src={this.props.media_url} alt={`supporting visual for ${this.props.title}`}/>
+                      <div >
+                        <img className='img-flex img-center' src={this.props.media_url} alt={`supporting visual for ${this.props.title}`}/>
+                      </div>
                       <p className='Memory_description'>
                         {this.props.memory_desc}
                       </p>
