@@ -16,6 +16,12 @@
   width: 75%;
   /* min-width: 200px; */
 }
+.img-flex {
+  display: flex;
+  width: 50vw;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: #2c3e50;
@@ -33,7 +39,6 @@ input[type="date"] {
     visibility: visible !important;
 }
 
-mobile styles
 @media only screen and (min-width: 320px) {
   .add-memory-container {
     width: 50%;
@@ -52,5 +57,14 @@ mobile styles
     font-size: 14px;
     padding: 8px;
     width: 350px;
+  }
+  .img-flex {
+    width: 45vw;
+  }
+}
+
+@media only screen and (min-width: 540px) {
+  .img-flex {
+    width: 35vw;
   }
 }

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import MemoryForm from '../MemoryForm/MemoryForm';
 import { MemoryContext } from '../MemoryContext';
 import './AddMemory.css';
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL, AWS_BASE_URL } from '../config';
 
 class AddMemory extends Component {
   static defaultProps = {
@@ -49,8 +49,52 @@ constructor(props) {
     this.setState({memoryFamilyMember}, () => {this.validateFamilyMember(memoryFamilyMember)});
   }
 
-  updateMemoryMedia(memoryMedia) {
-    this.setState({memoryMedia});
+  updateMemoryMedia = (memoryMedia) => {
+    console.log(memoryMedia.target.files[0]);
+    const file = memoryMedia.target.files[0]
+    if (file == null) {
+      return alert ('No file selected');
+    }
+    this.uploadToS3(file)
+      .then(url => {
+        this.setState({memoryMedia: url})
+      })
+  }
+  getSignedRequestFetch = (file) => {
+    return fetch(`${AWS_BASE_URL}/sign-s3?fileName=${file.name}&fileType=${file.type}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`${response.status}: ${response.statusText}`);
+      }
+      return response.json();
+    });
+  }
+
+  uploadFile = (file, signedRequest, url) => {
+    const options = {
+      method: 'PUT',
+      body: file
+    };
+    debugger
+    return fetch(signedRequest, options)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`${response.status}: ${response.statusText}`);
+        }
+        return url;
+      });
+  }
+
+  uploadToS3 = (file) => {
+    return this.getSignedRequestFetch(file)
+      .then(json => this.uploadFile(file, json.signedRequest,json.url))
+      .then(url => {
+        return url;
+      })
+      .catch(err => {
+        console.error(err);
+        return null;
+      });
   }
 
   updateMemoryDate(memoryDate) {
@@ -133,13 +177,12 @@ constructor(props) {
       memory_title: e.target['memory-title'].value,
       memory_desc: e.target['memory-description'].value,
       familymember_id: e.target['family-member-id'].value,
-      media_url: e.target['memory-media'].value,
-      // media_url: "https://via.placeholder.com/150",
+      media_url: this.state.memoryMedia,
       memory_date: e.target['memory-date'].value,
       date_updated: new Date().toDateString(),
     }
     console.log(newMemory);
-    debugger;
+
     fetch(`${API_BASE_URL}/memories`, {
       method: 'POST',
       headers: {
@@ -204,7 +247,7 @@ constructor(props) {
               <label htmlFor='memory-media-input'>
                 Add pic/video
               </label>
-              <input type='file' id='memory-media-input' name='memory-media' onChange={e => this.updateMemoryMedia(e.target.value)} />
+              <input type='file' id='memory-media-input' name='memory-media' onChange={this.updateMemoryMedia} />
             </div>
             <div className='add-memory-form '>
               <label htmlFor='memory-date-input'>
