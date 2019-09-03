@@ -3,15 +3,7 @@ import { withRouter } from 'react-router-dom';
 import MemoryForm from '../MemoryForm/MemoryForm';
 import { MemoryContext } from '../MemoryContext';
 import './AddMemory.css';
-import { API_BASE_URL, AWSAccessKeyId, AWSSecretKey } from '../config';
-import S3FileUpload from 'react-s3';
-
-const config = {
-  bucketName: 'familyvaultapi',
-  region: 'us-east-2',
-  accessKeyId: AWSAccessKeyId,
-  secretAccessKey: AWSSecretKey,
-}
+import { API_BASE_URL, AWS_BASE_URL } from '../config';
 
 class AddMemory extends Component {
   static defaultProps = {
@@ -59,12 +51,50 @@ constructor(props) {
 
   updateMemoryMedia = (memoryMedia) => {
     console.log(memoryMedia.target.files[0]);
-    S3FileUpload
-      .uploadFile(memoryMedia.target.files[0], config)
-      .then( (data) => {
-        this.setState({memoryMedia: data.location})
+    const file = memoryMedia.target.files[0]
+    if (file == null) {
+      return alert ('No file selected');
+    }
+    this.uploadToS3(file)
+      .then(url => {
+        this.setState({memoryMedia: url})
       })
-      .catch(err => console.error(err))
+  }
+  getSignedRequestFetch = (file) => {
+    return fetch(`${AWS_BASE_URL}/sign-s3?fileName=${file.name}&fileType=${file.type}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`${response.status}: ${response.statusText}`);
+      }
+      return response.json();
+    });
+  }
+
+  uploadFile = (file, signedRequest, url) => {
+    const options = {
+      method: 'PUT',
+      body: file
+    };
+    debugger
+    return fetch(signedRequest, options)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`${response.status}: ${response.statusText}`);
+        }
+        return url;
+      });
+  }
+
+  uploadToS3 = (file) => {
+    return this.getSignedRequestFetch(file)
+      .then(json => this.uploadFile(file, json.signedRequest,json.url))
+      .then(url => {
+        return url;
+      })
+      .catch(err => {
+        console.error(err);
+        return null;
+      });
   }
 
   updateMemoryDate(memoryDate) {
