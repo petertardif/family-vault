@@ -56,15 +56,19 @@ input[type="date"] {
   .add-memory-form select {
     font-size: 14px;
     padding: 8px;
-    width: 350px;
+    width: 40vw;
   }
   .img-flex {
     width: 45vw;
   }
 }
 
-@media only screen and (min-width: 540px) {
+@media only screen and (min-width: 550px) {
   .img-flex {
     width: 35vw;
+  }
+
+  .Button {
+    width: 150px;
   }
 }
