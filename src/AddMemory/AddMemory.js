@@ -75,7 +75,7 @@ constructor(props) {
       method: 'PUT',
       body: file
     };
-    debugger
+
     return fetch(signedRequest, options)
       .then(response => {
         if (!response.ok) {
