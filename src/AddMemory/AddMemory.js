@@ -50,7 +50,6 @@ constructor(props) {
   }
 
   updateMemoryMedia = (memoryMedia) => {
-    console.log(memoryMedia.target.files[0]);
     const file = memoryMedia.target.files[0]
     if (file == null) {
       return alert ('No file selected');
@@ -75,7 +74,6 @@ constructor(props) {
       method: 'PUT',
       body: file
     };
-
     return fetch(signedRequest, options)
       .then(response => {
         if (!response.ok) {
