@@ -27,6 +27,7 @@ This app helps capture memories by “Naming it,” “Describing it,” and “
 4. [Presentation Slide Deck](https://docs.google.com/presentation/d/1raNObaBoo4JI54qna1jIhd0JXTsZXaJ-8_G5vSYjVwA/edit?usp=sharing)
 5. [App Presentation](https://youtu.be/AkDsCauXJgs)
 
+
 ## API Endpoints
 Base URL - https://agile-fortress-94521.herokuapp.com/
 
@@ -43,9 +44,15 @@ Data retrieval and functionality for all family members associated with an indiv
 Data retrieval and functionality for a single family member related to an individual user.
 
 ## Built With
-* Frontend - React and React-Router
-* Backend - Node and Express
-* Data persistence - PostgreSQL, SQL / Knex
-* Testing - Chai, Mocha, Jest, Supertest, Enzyme, Postgrator, Faker
-* Hosted - Zeit and Heroku
-* Development Environment - VS Code
+* Frontend - [React](https://reactjs.org) and [React-Router](https://reacttraining.com/react-router/)
+* Backend - [Node](https://nodejs.org/en/) and [Express](https://expressjs.com/)
+* Data persistence - [Amazon Web Services S3](https://aws.amazon.com/s3/), [PostgreSQL](https://www.postgresql.org/), SQL / [Knex.js](http://knexjs.org/)
+* Testing - [Chai](https://www.chaijs.com/), [Mocha](https://mochajs.org/), [Jest](https://jestjs.io/), [SuperTest](https://github.com/visionmedia/supertest), [Enzyme](https://airbnb.io/enzyme/), [Postgrator](https://github.com/rickbergfalk/postgrator), [Faker](https://faker.readthedocs.io/en/master/)
+* Hosted - [Zeit](https://zeit.co/) and [Heroku](https://www.heroku.com)
+* Development Environment - [VS Code](https://code.visualstudio.com) with theme: [Oceanic Park](https://marketplace.visualstudio.com/items?itemName=naumovs.theme-oceanicnext)
+
+## Author
+* Peter Tardif - Full-Stack - [petertardif](https://github.com/petertardif/)
+
+## Acknowledgments
+* Nash Worth and Al Zimmerman
