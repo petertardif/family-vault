@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import MemoryForm from '../MemoryForm/MemoryForm';
 import { MemoryContext } from '../MemoryContext';
+import ValidationError from '../ValidationError/ValidationError';
 import './AddMemory.css';
 import { API_BASE_URL, AWS_BASE_URL } from '../config';
 
@@ -18,11 +19,23 @@ static contextType = MemoryContext;
 constructor(props) {
   super(props);
   this.state = {
-    memoryTitle: '',
-    memoryDescription: '',
-    memoryFamilyMember: '',
+    memoryTitle: {
+      value: '',
+      touched: false
+    },
+    memoryDescription: {
+      value: '',
+      touched: false
+    },
+    memoryFamilyMember: {
+      value: '',
+      touched: true
+    },
     memoryMedia: '',
-    memoryDate: '',
+    memoryDate: {
+      value: '',
+      touched: true
+    },
     memoryTitleValid: false,
     memoryDescriptionValid: false,
     memoryFamilyMemberValid: false,
@@ -38,15 +51,15 @@ constructor(props) {
 }
 
   updateMemoryTitle(memoryTitle) {
-    this.setState({memoryTitle}, () => {this.validateMemoryTitle(memoryTitle)});
+    this.setState({memoryTitle: { value: memoryTitle, touched: true } }, () => {this.validateMemoryTitle(memoryTitle)});
   }
 
   updateMemoryDescription(memoryDescription) {
-    this.setState({memoryDescription}, () => {this.validateMemoryDescription(memoryDescription)});
+    this.setState({memoryDescription: { value: memoryDescription, touched: true } }, () => {this.validateMemoryDescription(memoryDescription)});
   }
 
   updateFamilyMember(memoryFamilyMember) {
-    this.setState({memoryFamilyMember}, () => {this.validateFamilyMember(memoryFamilyMember)});
+    this.setState({memoryFamilyMember: { value: memoryFamilyMember, touched: true } }, () => {this.validateFamilyMember(memoryFamilyMember)});
   }
 
   updateMemoryMedia = (memoryMedia) => {
@@ -96,7 +109,7 @@ constructor(props) {
   }
 
   updateMemoryDate(memoryDate) {
-    this.setState({memoryDate}, () => {this.validateMemoryDate(memoryDate)});
+    this.setState({memoryDate: { value: memoryDate, touched: true } }, () => {this.validateMemoryDate(memoryDate)});
   }
 
   validateMemoryTitle(fieldValue) {
@@ -107,13 +120,21 @@ constructor(props) {
     if(fieldValue.length === 0) {
       fieldErrors.memoryTitle = 'Please type a memory title';
       hasError = true;
+    } else {
+      if (fieldValue.length < 3) {
+        fieldErrors.memoryTitle = 'Memory title must be at least 3 characters long';
+        hasError = true;
+      } else {
+        fieldErrors.memoryTitle = '';
+        hasError = false;
+      }
     }
 
     this.setState({
       validationMessages: fieldErrors,
       memoryTitleValid: !hasError
     }, this.formValid );
-  }
+  };
 
   validateMemoryDescription(fieldValue) {
     const fieldErrors = {...this.state.validationMessages};
@@ -123,6 +144,9 @@ constructor(props) {
     if(fieldValue.length === 0) {
       fieldErrors.memoryDescription = 'Please type a description of the memory ';
       hasError = true;
+    } else {
+      fieldErrors.memoryDescription = '';
+      hasError = false;
     }
 
     this.setState({
@@ -138,6 +162,9 @@ constructor(props) {
     if(fieldValue === "empty") {
       fieldErrors.memoryFamilyMember = 'Please select a Family Member';
       hasError = true;
+    } else {
+      fieldErrors.memoryFamilyMember = '';
+      hasError = false;
     }
 
     this.setState({
@@ -154,6 +181,9 @@ constructor(props) {
     if(fieldValue.length === 0) {
       fieldErrors.memoryDate = 'Please enter a valid date.';
       hasError = true;
+    } else {
+      fieldErrors.memoryDate = '';
+      hasError = false;
     }
 
     this.setState({
@@ -221,12 +251,14 @@ constructor(props) {
                 Name it
               </label>
               <input type='text' id='memory-title-input' name='memory-title' onChange={e => this.updateMemoryTitle(e.target.value)} />
+              <ValidationError hasError={!this.state.memoryTitleValid} message={this.state.validationMessages.memoryTitle}/>
             </div>
             <div className='add-memory-form '>
               <label htmlFor='memory-description-input'>
                 Describe it
               </label>
               <textarea id='memory-description-input' name='memory-description' onChange={e => this.updateMemoryDescription(e.target.value)} />
+              <ValidationError hasError={!this.state.memoryDescriptionValid} message={this.state.validationMessages.memoryDescription}/>
             </div>
             <div className='add-memory-form '>
               <label htmlFor='family-member-select'>
@@ -240,6 +272,7 @@ constructor(props) {
                   </option>
                 )}
               </select>
+              <ValidationError hasError={!this.state.memoryFamilyMemberValid} message={this.state.validationMessages.memoryFamilyMember}/>
             </div>
             <div className='add-memory-form '>
               <label htmlFor='memory-media-input'>
@@ -252,6 +285,7 @@ constructor(props) {
                 Date
               </label>
               <input type='date' id='memory-date-input' max={today} name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
+              <ValidationError hasError={!this.state.memoryDateValid} message={this.state.validationMessages.memoryDate}/>
             </div>
             <div className='buttons add-memory-buttons'>
               <button type='submit' disabled={!this.state.formValid} className='Button blue'>
