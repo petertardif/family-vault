@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import MemoryList from '../MemoryList/MemoryList';
 import MemoryPage from '../MemoryPage/MemoryPage';
 import AddMemory from '../AddMemory/AddMemory';
+import AddFamilyMember from '../AddFamilyMember/AddFamilyMember';
 import LandingPage from '../LandingPage/LandingPage'
 import UserLandingPage from '../UserLanding/UserLandingPage';
 import PageNotFound from '../PageNotFound/PageNotFound';
@@ -12,6 +13,7 @@ import About from '../About/About'
 import TermsOfUse from '../TermsOfUse/TermsOfUse';
 import { MemoryContext } from '../MemoryContext';
 import './App.css';
+
 
 export default class App extends Component {
   state = {
@@ -129,6 +131,10 @@ export default class App extends Component {
                   <AddMemory
                     {...this.state}
                   />}
+              />
+              <Route
+                path='/add-family-member'
+                component={AddFamilyMember}
               />
               <Route 
                 path='/about' 
