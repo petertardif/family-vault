@@ -76,7 +76,7 @@ export default class AddFamilyMember extends Component {
   }
 
   handleClickGoBack = () => {
-    this.props.history.push('/userlanding');
+    this.props.history.push('/memorylist');
   } 
 
   // UPDATE FOR FAMILY MEMBER
