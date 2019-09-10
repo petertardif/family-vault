@@ -13,7 +13,7 @@ export default class LandingPage extends Component {
       <div>
         <section className='bgimg-1'>
           <article className='caption'>
-            <span className='border'>Family Vault </span>
+            <span className='border LandingPage__title'>Family Vault </span>
             <a href='#header' className='chevron grow'><FontAwesomeIcon icon='chevron-down' size="3x"/></a>
           </article>
         </section>
@@ -65,7 +65,7 @@ export default class LandingPage extends Component {
 
         <section className="container__section">
           <article className='article_wrapper'>
-            <h2>Never miss another moment</h2>
+            <h2>Capture it all!</h2>
             {/* <button>Sign Up Now!</button> */}
           </article>
         </section>

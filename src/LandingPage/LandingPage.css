@@ -64,12 +64,12 @@
 
 .caption span.border {
   background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: 25px;
-  letter-spacing: 10px;
-  text-align: center;
   border-radius: 3px;
+  color: #fff;
+  font-size: 4vh;
+  letter-spacing: 10px;
+  padding: 18px;
+  text-align: center;
 }
 
 .chevron {
@@ -100,6 +100,7 @@
 
 .Button {
   margin: 30px;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   height: 35px;
   width: 150px;
@@ -112,10 +113,6 @@
  @media only screen and (min-width: 320px) {
   .article_wrapper {
     width: 90%;
-  }
-
-  li {
-    text-align: left;
   }
 
   ul {
