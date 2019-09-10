@@ -20,7 +20,7 @@ export default class FamilyMemberNav extends Component {
               <li key={familyMember.id}>
                 <NavLink 
                   className='NoteListNav__folder-link' 
-                  to={`/family-members/${familyMember.id}`}>{familyMember.first_name}
+                  to={`/family-member/${familyMember.id}`}>{familyMember.first_name}
                 </NavLink>
               </li>
             )}

@@ -4,6 +4,7 @@ import FamilyMemberNav from '../FamilyMemberNav/FamilyMemberNav';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import MemoryList from '../MemoryList/MemoryList';
+import MemoryFilter from '../MemoryFilter/MemoryFilter';
 import MemoryPage from '../MemoryPage/MemoryPage';
 import AddMemory from '../AddMemory/AddMemory';
 import AddFamilyMember from '../AddFamilyMember/AddFamilyMember';
@@ -132,6 +133,10 @@ export default class App extends Component {
                     <MemoryList 
                       {...this.state}
                     />}
+                />
+                <Route 
+                  path='/family-member/:familyMemberId'
+                  component={MemoryFilter}
                 />
                 <Route 
                   path='/memory/:memoryId' 
