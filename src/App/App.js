@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import FamilyMemberNav from '../FamilyMemberNav/FamilyMemberNav';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import MemoryList from '../MemoryList/MemoryList';
+import MemoryFilter from '../MemoryFilter/MemoryFilter';
 import MemoryPage from '../MemoryPage/MemoryPage';
 import AddMemory from '../AddMemory/AddMemory';
+import AddFamilyMember from '../AddFamilyMember/AddFamilyMember';
 import LandingPage from '../LandingPage/LandingPage'
 import UserLandingPage from '../UserLanding/UserLandingPage';
 import PageNotFound from '../PageNotFound/PageNotFound';
@@ -13,6 +16,7 @@ import TermsOfUse from '../TermsOfUse/TermsOfUse';
 import { MemoryContext } from '../MemoryContext';
 import { API_BASE_URL } from '../config';
 import './App.css';
+
 
 export default class App extends Component {
   state = {
@@ -101,50 +105,74 @@ export default class App extends Component {
 
     return (
       <>
-        <Navbar />
-        <main className=' main'>
-          <MemoryContext.Provider value={contextMemoriesValue}>
-            <Switch>
-              <Route 
-                exact path='/' 
-                component={LandingPage}
-              />
-              <Route 
-                path='/userlanding' 
-                component={UserLandingPage}
-              />
-              <Route 
-                exact path='/memorylist' 
-                render={() => 
-                  <MemoryList 
-                    {...this.state}
-                  />}
-              />
-              <Route 
-                path='/memory/:memoryId' 
-                component={MemoryPage}
-              />
-              <Route 
-                path='/add-memory' 
-                render={() => 
-                  <AddMemory
-                    {...this.state}
-                  />}
-              />
-              <Route 
-                path='/about' 
-                component={About}
-              />
-              <Route 
-                path='/terms' 
-                component={TermsOfUse}
-              />
-              {/* THIS ROUTE BELOW MUST BE AT THE BOTTOM OR IT WILL ALWAYS RENDER */}
-              <Route component={PageNotFound} /> 
-            </Switch>
-          </MemoryContext.Provider>
-        </main>
-        <Footer />
+        <MemoryContext.Provider value={contextMemoriesValue}>
+          <nav>
+            <Route
+              path='/memorylist'
+              component={FamilyMemberNav}
+            />
+            <Route
+              path='/userlanding'
+              component={FamilyMemberNav}
+            />
+            <Route 
+              path='/family-member/:familyMemberId'
+              component={FamilyMemberNav}
+            />
+          </nav> 
+          <Navbar />
+          <main className=' main'>
+            
+              <Switch>
+                <Route 
+                  exact path='/' 
+                  component={LandingPage}
+                />
+                <Route 
+                  path='/userlanding' 
+                  component={UserLandingPage}
+                />
+                <Route 
+                  exact path='/memorylist' 
+                  render={() => 
+                    <MemoryList 
+                      {...this.state}
+                    />}
+                />
+                <Route 
+                  path='/family-member/:familyMemberId'
+                  component={MemoryFilter}
+                />
+                <Route 
+                  path='/memory/:memoryId' 
+                  component={MemoryPage}
+                />
+                <Route 
+                  path='/add-memory' 
+                  render={() => 
+                    <AddMemory
+                      {...this.state}
+                    />}
+                />
+                <Route
+                  path='/add-family-member'
+                  component={AddFamilyMember}
+                />
+                <Route 
+                  path='/about' 
+                  component={About}
+                />
+                <Route 
+                  path='/terms' 
+                  component={TermsOfUse}
+                />
+                {/* THIS ROUTE BELOW MUST BE AT THE BOTTOM OR IT WILL ALWAYS RENDER */}
+                <Route component={PageNotFound} /> 
+              </Switch>
+            
+          </main>
+          <Footer />
+        </MemoryContext.Provider>
       </>
     )
   }

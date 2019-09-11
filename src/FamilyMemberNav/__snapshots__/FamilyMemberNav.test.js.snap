@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FamilyMemberNav component renders a .FamilyMemberNav by default 1`] = `
+<section
+  className="NoteListNav"
+>
+  <ul
+    aria-live="polite"
+    className="NoteListNav__list"
+  />
+  <div
+    className="buttons"
+  >
+    <button
+      className="Button blue"
+      onClick={[Function]}
+    >
+      Add Family Member
+    </button>
+  </div>
+</section>
+`;

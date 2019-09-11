@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddFamilyMember component renders the complete form 1`] = `
+<Fragment>
+  <section
+    className="add-fm-container"
+  >
+    <h2>
+      Add a Family Member
+    </h2>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="add-fm-form"
+      >
+        <label
+          htmlFor="first-name-input"
+        >
+          First Name
+        </label>
+        <input
+          aria-describedby="add-first-name-input"
+          aria-label="Add a first  name"
+          aria-required="true"
+          id="first-name-input"
+          name="first-name"
+          onChange={[Function]}
+          type="text"
+        />
+        <ValidationError
+          hasError={true}
+          id="add-first-name-input"
+          message=""
+        />
+      </div>
+      <div
+        className="add-fm-form"
+      >
+        <label
+          htmlFor="last-name-input"
+        >
+          Last Name
+        </label>
+        <input
+          aria-describedby="add-last-name-input"
+          aria-label="Add a last  name"
+          aria-required="true"
+          id="last-name-input"
+          name="last-name"
+          onChange={[Function]}
+          type="text"
+        />
+        <ValidationError
+          hasError={true}
+          id="add-last-name-input"
+          message=""
+        />
+      </div>
+      <div
+        className="buttons"
+      >
+        <button
+          className="Button blue"
+          disabled={true}
+          type="submit"
+        >
+          Add Family Member
+        </button>
+        <button
+          className="Button blue"
+          onClick={[Function]}
+        >
+          Back
+        </button>
+      </div>
+    </form>
+  </section>
+</Fragment>
+`;

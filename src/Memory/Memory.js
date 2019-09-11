@@ -96,6 +96,7 @@ class Memory extends Component {
 }
 
 Memory.defaultProps = {
+  memories: [],
   onClickDelete: () => {},
 }
 
