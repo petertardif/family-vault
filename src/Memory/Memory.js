@@ -8,13 +8,9 @@ import './Memory.css';
 import '../Button/Button.css'
 
 class Memory extends Component {
-  // static defaultProps = {
-  //   onDeleteMemory: () => {},
-  // }
   static contextType = MemoryContext;
 
   handleDeleteRequest = () => {
-    // event.preventDefault()
     const memoryId = this.props.id
     fetch(`${API_BASE_URL}/memories/${memoryId}`, {
       method: 'DELETE',
@@ -67,6 +63,7 @@ class Memory extends Component {
                         {this.props.memory_desc}
                       </p>
                       <div className='Memory_buttons'>
+                        {/* leave the below code for when I add in the edit a memory feature */}
                         {/* <button
                           className='Btn_memory_edit'
                           // onClick={() => props.onClickEdit(props.id)}
@@ -76,7 +73,6 @@ class Memory extends Component {
                         <button
                           className='Button fire-red'
                           type='button'
-                          // onClick={this.handleDeleteRequest}
                           onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteRequest() } }
                         >
                           Delete

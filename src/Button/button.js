@@ -7,7 +7,6 @@ export default function Button(props) {
   return React.createElement(
     props.tag,
     {
-      // className: ['Button', props.classname].join(' '),
       ...otherProps
     },
     props.children
