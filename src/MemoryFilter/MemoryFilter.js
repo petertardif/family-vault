@@ -23,15 +23,11 @@ export default class MemoryFilter extends Component {
 
   render() {
     let selectedFamilyMember = this.context.familyMembers.find(fm => fm.id.toString() === this.props.match.params.familyMemberId);
-    debugger;
     let fmAtTopLevel = Object.keys(this.props.match.params).length > 0;
 
     let filteredMemories = this.context.memories.map(memory => 
-      selectedFamilyMember.id === memory.familymember_id ? <Memory key={memory.id} date={memory.memory_date} /> : null
-      
+      selectedFamilyMember.id === memory.familymember_id ? <Memory key={memory.id} {...memory} /> : null
       );
-    
-    console.log(filteredMemories)
 
     const displayMemories = (fmAtTopLevel) ? filteredMemories : this.context.memories;
     
