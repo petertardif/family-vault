@@ -2,7 +2,7 @@
   font-family: 'Baloo', cursive;
 }
 
-.landingpage-header {
+.LandingPage-header {
   margin: 150px auto;
 }
 
@@ -112,13 +112,26 @@
 
  @media only screen and (min-width: 320px) {
   .article_wrapper {
-    width: 90%;
+    width: 70%;
   }
 
   ul {
     padding: 5px 7.5px;
   }
+
+  .LandingPage-ul {
+    padding: 5px 7.5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .LandingPage-li {
+    margin: 20px 20px;
+    max-width: 30vw;
+  }
 }
+
 @media only screen and (max-width: 320px) {
   .article_wrapper {
     width: 90%;
@@ -130,6 +143,18 @@
 
   ul {
     padding: 5px 7.5px;
+  }
+
+  .LandingPage-ul {
+    padding: 5px 7.5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .LandingPage-li {
+    margin: 20px 20px;
+    max-width: 40vw;
   }
 }
 
@@ -144,6 +169,12 @@
     box-shadow: 1px 1px 0px 2px rgba (0,0,0,0.3);
     color: white;
    }
+   
+   .LandingPage-ul {
+    padding: 5px 7.5px;
+    display: flex;
+    justify-content: center;
+  }
 
    li {
     text-align: center;

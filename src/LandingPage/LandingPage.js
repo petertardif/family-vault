@@ -17,7 +17,7 @@ export default class LandingPage extends Component {
             <a href='#header' className='chevron grow'><FontAwesomeIcon icon='chevron-down' size="3x"/></a>
           </article>
         </section>
-        <header id='header' role='banner' className='landingpage-header'>
+        <header id='header' role='banner' className='LandingPage-header'>
           <article className='article_wrapper'>
             <h2>Forever capture your family's precious moments through thoughts, letters, audio, images, and videos.</h2>
             <button onClick={this.handleClickUserLanding} className='Button red'>Get Started</button>
@@ -40,12 +40,37 @@ export default class LandingPage extends Component {
         <section className='container__section'>
           <article className='article_wrapper'>
             <h2>How it works</h2>
-            <ul>
-              <li>Create a vault</li>
-              <li>Add in your recipients</li>
-              <li>Add memories of audio or text notes, images, videos, letters, or recordings and attach to your recipient</li>
-              <li>Share with others or add collaborators</li>
-              <li>Determine when to reveal content with your family</li>
+            <ul className='LandingPage-ul'>
+              <li className='LandingPage-li'>
+                <div>
+                  <><FontAwesomeIcon icon='archive' size="2x"/></>
+                  <p>Create a vault</p>
+                </div>
+              </li>
+              <li className='LandingPage-li'>
+                <div>
+                  <><FontAwesomeIcon icon='user-friends' size="2x"/></>
+                  <p>Add in your recipients</p>
+                </div>
+              </li>
+              <li className='LandingPage-li'>
+                <div>
+                  <><FontAwesomeIcon icon='photo-video' size="2x"/></>
+                  <p>Add memories of audio or text notes, images, videos, letters, or recordings and attach to your recipient</p>
+                </div>
+              </li>
+              <li className='LandingPage-li'>
+                <div>
+                  <><FontAwesomeIcon icon='hand-holding-heart' size="2x"/></>
+                  <p>Share with others or add collaborators</p>
+                </div>
+              </li>
+              <li className='LandingPage-li'>
+                <div>
+                  <><FontAwesomeIcon icon='calendar-alt' size="2x"/></>
+                  <p>Determine when to reveal content with your family</p>
+                </div>
+              </li>
             </ul>
           </article>
         </section>
