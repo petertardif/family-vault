@@ -114,6 +114,10 @@ export default class App extends Component {
               path='/userlanding'
               component={FamilyMemberNav}
             />
+            <Route 
+              path='/family-member/:familyMemberId'
+              component={FamilyMemberNav}
+            />
           </nav> 
           <Navbar />
           <main className=' main'>

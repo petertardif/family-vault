@@ -1,0 +1,55 @@
+.NoteListNav {
+  padding: 150px 10px 10px 10px;
+}
+
+.NoteListNav__Ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.NoteListNav__Listitems > a {
+  color: gray;
+  display: flex;
+  align-items: space-evenly;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.NoteListNav__Listitems > a:hover {
+  color: rgba(197, 8, 36, 0.9);
+  text-decoration: none;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+
+.NotelistCircleButton {
+  background-color: #fefefe;
+  border-radius: 50px;
+  border: 0;
+  color: black;
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  height: 80px;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  width: 80px;
+}
+
+.NotelistCircleButton:hover {
+  background-color: rgba(197, 8, 36, 0.9);
+}
+
+button.NotelistCircleButton {
+  padding: 8px 8px;
+}
+
+.NotelistCircleButton:hover {
+  cursor: pointer;
+  color: white;
+}

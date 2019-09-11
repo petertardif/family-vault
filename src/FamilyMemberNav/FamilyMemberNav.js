@@ -15,19 +15,20 @@ export default class FamilyMemberNav extends Component {
 
       return (
         <section className='NoteListNav'>
-          <ul className='NoteListNav__list' aria-live='polite'>
+          <ul className='NoteListNav__Ul' aria-live='polite'>
             {familyMembers.map(familyMember =>
-              <li key={familyMember.id}>
+              <li className='NoteListNav__Listitems' key={familyMember.id}>
                 <NavLink 
                   className='NoteListNav__folder-link' 
                   to={`/family-member/${familyMember.id}`}>{familyMember.first_name}
                 </NavLink>
               </li>
             )}
-          </ul>
-          <div className='buttons'>
-            <button onClick={this.handleClickAddFamilyMember} className='Button blue'>Add Family Member</button>
+            <div className='buttons'>
+            <button onClick={this.handleClickAddFamilyMember} className='NotelistCircleButton'>+</button>
           </div>
+          </ul>
+          
         </section>
       )
     }

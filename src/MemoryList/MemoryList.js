@@ -42,7 +42,7 @@ class MemoryList extends Component {
 
   render() {
     return (
-      <section className='container__top'>
+      <section>
         <h2 className='Memorylist__title'>Memories</h2> 
         <section className='MemoryList__list' aria-live='polite'>
           {this.context.memories.map(memory =>

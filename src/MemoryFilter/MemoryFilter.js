@@ -32,7 +32,7 @@ export default class MemoryFilter extends Component {
     const displayMemories = (fmAtTopLevel) ? filteredMemories : this.context.memories;
     
     return(
-      <section className='container__top'>
+      <section>
         <h2 className='Memorylist__title'>Memories</h2> 
         <section className='MemoryList__list' aria-live='polite'>
           { displayMemories }
