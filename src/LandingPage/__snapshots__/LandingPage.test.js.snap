@@ -9,7 +9,7 @@ exports[`LandingPage component renders a .LandingPage by default 1`] = `
       className="caption"
     >
       <span
-        className="border"
+        className="border LandingPage__title"
       >
         Family Vault 
       </span>
@@ -39,7 +39,7 @@ exports[`LandingPage component renders a .LandingPage by default 1`] = `
     </article>
   </section>
   <header
-    className="landingpage-header"
+    className="LandingPage-header"
     id="header"
     role="banner"
   >
@@ -79,28 +79,152 @@ exports[`LandingPage component renders a .LandingPage by default 1`] = `
       </ul>
     </article>
   </section>
-  <section>
+  <section
+    className="container__section"
+  >
     <article
       className="article_wrapper"
     >
       <h2>
         How it works
       </h2>
-      <ul>
-        <li>
-          Create a vault
+      <ul
+        className="LandingPage-ul"
+      >
+        <li
+          className="LandingPage-li"
+        >
+          <div>
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip={null}
+              icon="archive"
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull={null}
+              pulse={false}
+              rotation={null}
+              size="2x"
+              spin={false}
+              symbol={false}
+              title=""
+              transform={null}
+            />
+            <p>
+              Create a vault
+            </p>
+          </div>
         </li>
-        <li>
-          Add in your recipients
+        <li
+          className="LandingPage-li"
+        >
+          <div>
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip={null}
+              icon="user-friends"
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull={null}
+              pulse={false}
+              rotation={null}
+              size="2x"
+              spin={false}
+              symbol={false}
+              title=""
+              transform={null}
+            />
+            <p>
+              Add in your recipients
+            </p>
+          </div>
         </li>
-        <li>
-          Add memories of audio or text notes, images, videos, letters, or recordings and attach to your recipient
+        <li
+          className="LandingPage-li"
+        >
+          <div>
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip={null}
+              icon="photo-video"
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull={null}
+              pulse={false}
+              rotation={null}
+              size="2x"
+              spin={false}
+              symbol={false}
+              title=""
+              transform={null}
+            />
+            <p>
+              Add memories of audio or text notes, images, videos, letters, or recordings and attach to your recipient
+            </p>
+          </div>
         </li>
-        <li>
-          Share with others or add collaborators
+        <li
+          className="LandingPage-li"
+        >
+          <div>
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip={null}
+              icon="hand-holding-heart"
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull={null}
+              pulse={false}
+              rotation={null}
+              size="2x"
+              spin={false}
+              symbol={false}
+              title=""
+              transform={null}
+            />
+            <p>
+              Share with others or add collaborators
+            </p>
+          </div>
         </li>
-        <li>
-          Determine when to reveal content with your family
+        <li
+          className="LandingPage-li"
+        >
+          <div>
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip={null}
+              icon="calendar-alt"
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull={null}
+              pulse={false}
+              rotation={null}
+              size="2x"
+              spin={false}
+              symbol={false}
+              title=""
+              transform={null}
+            />
+            <p>
+              Determine when to reveal content with your family
+            </p>
+          </div>
         </li>
       </ul>
     </article>
@@ -130,12 +254,14 @@ exports[`LandingPage component renders a .LandingPage by default 1`] = `
       </ul>
     </article>
   </section>
-  <section>
+  <section
+    className="container__section"
+  >
     <article
       className="article_wrapper"
     >
       <h2>
-        Never miss another moment
+        Capture it all!
       </h2>
     </article>
   </section>

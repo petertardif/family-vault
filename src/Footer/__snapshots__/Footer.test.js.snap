@@ -9,10 +9,20 @@ exports[`Footer component renders a .Footer by default 1`] = `
       className="footer_listitems"
     >
       <li>
-        About
+        <Link
+          className="footer_listitems"
+          to="/about"
+        >
+          About
+        </Link>
       </li>
       <li>
-        Terms of Use
+        <Link
+          className="footer_listitems"
+          to="/terms"
+        >
+          Terms of Use
+        </Link>
       </li>
     </ul>
   </footer>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Memory from '../Memory/Memory';
 import { MemoryContext } from '../MemoryContext';
+import { API_BASE_URL } from '../config';
 import './MemoryList.css'
 import '../Button/Button.css';
 
@@ -17,7 +18,7 @@ class MemoryList extends Component {
   static contextType = MemoryContext;
   
   componentWillMount() {
-      fetch(`https://agile-fortress-94521.herokuapp.com/api/memories`)
+      fetch(`${API_BASE_URL}/memories`)
       // fetch(`https://agile-fortress-94521.herokuapp.com/api/family-members`)
       
       .then((memoriesResponse) => {

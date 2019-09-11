@@ -11,6 +11,7 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import About from '../About/About'
 import TermsOfUse from '../TermsOfUse/TermsOfUse';
 import { MemoryContext } from '../MemoryContext';
+import { API_BASE_URL } from '../config';
 import './App.css';
 
 export default class App extends Component {
@@ -24,8 +25,8 @@ export default class App extends Component {
   componentDidMount() {
 
     Promise.all([
-      fetch(`https://agile-fortress-94521.herokuapp.com/api/memories`),
-      fetch(`https://agile-fortress-94521.herokuapp.com/api/family-members`)
+      fetch(`${API_BASE_URL}/memories`),
+      fetch(`${API_BASE_URL}/family-members`)
     ])
       .then(([memoriesResponse,familymembersResponse]) => {
         if(!memoriesResponse.ok) {
