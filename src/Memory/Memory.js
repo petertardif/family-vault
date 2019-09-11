@@ -76,7 +76,8 @@ class Memory extends Component {
                         <button
                           className='Button fire-red'
                           type='button'
-                          onClick={this.handleDeleteRequest}
+                          // onClick={this.handleDeleteRequest}
+                          onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDeleteRequest() } }
                         >
                           Delete
                         </button>
