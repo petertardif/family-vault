@@ -67,6 +67,7 @@ constructor(props) {
     if (file == null) {
       return alert ('No file selected');
     }
+    // TODO: remove S3 call, save the file to local state
     this.uploadToS3(file)
       .then(url => {
         this.setState({memoryMedia: url})
@@ -209,6 +210,10 @@ constructor(props) {
       memory_date: e.target['memory-date'].value,
       date_updated: new Date().toDateString(),
     }
+// TODO: first promise will only be S3 and only when S3 is done, entire fetch below should run and this can occur through an add promise.done, grab URL from state
+// TODO: catch S3 fail
+// TODO: First look to see if the S3 call returns a promise object
+// TODO: first promise on success returns S3 URL to the done parameter, E.g. promise.done(url)
 
     fetch(`${API_BASE_URL}/memories`, {
       method: 'POST',
