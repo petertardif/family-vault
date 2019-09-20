@@ -65,7 +65,7 @@ constructor(props) {
     this.setState({memoryFamilyMember: { value: memoryFamilyMember, touched: true } }, () => {this.validateFamilyMember(memoryFamilyMember)});
   }
 
-  updateMemoryMedia1(memoryMedia) {
+  updateMemoryMediaState(memoryMedia) {
     this.setState({memoryMedia: { value: memoryMedia, touched: true } });
   }
 
@@ -76,7 +76,41 @@ constructor(props) {
     }
     this.uploadToS3(file)
       .then(url => {
-        this.setState({memoryMedia: url})
+        this.setState({memoryMedia: {value: url, touched: true } }) 
+      })
+      .then(() => {
+        this.sendDataToServer();;
+      });
+      
+  }
+  sendDataToServer = () => {
+    const newMemory = {
+      memory_title: this.state.memoryTitle.value,
+      memory_desc: this.state.memoryDescription.value,
+      familymember_id: this.state.memoryFamilyMember.value,
+      media_url: this.state.memoryMedia.value,
+      memory_date: this.state.memoryDate.value,
+      date_updated: new Date().toDateString(),
+    }
+
+    fetch(`${API_BASE_URL}/memories`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newMemory),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(memory => {
+        this.context.addMemory(memory)
+        this.props.history.push(`/memorylist`)
+      })
+      .catch(error => {
+        console.error({ error })
       })
   }
   getSignedRequestFetch = (file) => {
@@ -208,39 +242,11 @@ constructor(props) {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     this.updateMemoryMedia(this.state.memoryMedia.value);
-    const newMemory = {
-      memory_title: this.state.memoryTitle.value,
-      memory_desc: this.state.memoryDescription.value,
-      familymember_id: this.state.memoryFamilyMember.value,
-      media_url: this.state.memoryMedia.value,
-      memory_date: this.state.memoryDate.value,
-      date_updated: new Date().toDateString(),
-    }
-
-    fetch(`${API_BASE_URL}/memories`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(newMemory),
-    })
-      .then(res => {
-        if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
-      })
-      .then(memory => {
-        this.context.addMemory(memory)
-        this.props.history.push(`/memorylist`)
-      })
-      .catch(error => {
-        console.error({ error })
-      })
   }
 
-  handleClickGoBack = () => {
+  handleClickGoBack = (e) => {
+    e.preventDefault();
     this.props.history.push('/userlanding');
   } 
   
@@ -286,7 +292,7 @@ constructor(props) {
               <label htmlFor='memory-media-input'>
                 Add pic/video
               </label>
-              <input type='file' id='memory-media-input' name='memory-media' onChange={e => this.updateMemoryMedia1(e.target.files[0])}/>
+              <input type='file' id='memory-media-input' name='memory-media' onChange={e => this.updateMemoryMediaState(e.target.files[0])}/>
             </div>
             <div className='add-memory-form '>
               <label htmlFor='memory-date-input'>
