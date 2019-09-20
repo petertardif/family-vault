@@ -31,7 +31,10 @@ constructor(props) {
       value: '',
       touched: true
     },
-    memoryMedia: '',
+    memoryMedia: {
+      value: '',
+      touched: true
+    },
     memoryDate: {
       value: '',
       touched: true
@@ -62,15 +65,52 @@ constructor(props) {
     this.setState({memoryFamilyMember: { value: memoryFamilyMember, touched: true } }, () => {this.validateFamilyMember(memoryFamilyMember)});
   }
 
-  updateMemoryMedia = (memoryMedia) => {
-    const file = memoryMedia.target.files[0]
+  updateMemoryMediaState(memoryMedia) {
+    this.setState({memoryMedia: { value: memoryMedia, touched: true } });
+  }
+
+  updateMemoryMedia = () => {
+    const file = this.state.memoryMedia.value
     if (file == null) {
       return alert ('No file selected');
     }
-    // TODO: remove S3 call, save the file to local state
     this.uploadToS3(file)
       .then(url => {
-        this.setState({memoryMedia: url})
+        this.setState({memoryMedia: {value: url, touched: true } }) 
+      })
+      .then(() => {
+        this.sendDataToServer();;
+      });
+      
+  }
+  sendDataToServer = () => {
+    const newMemory = {
+      memory_title: this.state.memoryTitle.value,
+      memory_desc: this.state.memoryDescription.value,
+      familymember_id: this.state.memoryFamilyMember.value,
+      media_url: this.state.memoryMedia.value,
+      memory_date: this.state.memoryDate.value,
+      date_updated: new Date().toDateString(),
+    }
+
+    fetch(`${API_BASE_URL}/memories`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newMemory),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(memory => {
+        this.context.addMemory(memory)
+        this.props.history.push(`/memorylist`)
+      })
+      .catch(error => {
+        console.error({ error })
       })
   }
   getSignedRequestFetch = (file) => {
@@ -202,41 +242,11 @@ constructor(props) {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const newMemory = {
-      memory_title: e.target['memory-title'].value,
-      memory_desc: e.target['memory-description'].value,
-      familymember_id: e.target['family-member-id'].value,
-      media_url: this.state.memoryMedia,
-      memory_date: e.target['memory-date'].value,
-      date_updated: new Date().toDateString(),
-    }
-// TODO: first promise will only be S3 and only when S3 is done, entire fetch below should run and this can occur through an add promise.done, grab URL from state
-// TODO: catch S3 fail
-// TODO: First look to see if the S3 call returns a promise object
-// TODO: first promise on success returns S3 URL to the done parameter, E.g. promise.done(url)
-
-    fetch(`${API_BASE_URL}/memories`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(newMemory),
-    })
-      .then(res => {
-        if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
-      })
-      .then(memory => {
-        this.context.addMemory(memory)
-        this.props.history.push(`/memorylist`)
-      })
-      .catch(error => {
-        console.error({ error })
-      })
+    this.updateMemoryMedia(this.state.memoryMedia.value);
   }
 
-  handleClickGoBack = () => {
+  handleClickGoBack = (e) => {
+    e.preventDefault();
     this.props.history.push('/userlanding');
   } 
   
@@ -282,7 +292,7 @@ constructor(props) {
               <label htmlFor='memory-media-input'>
                 Add pic/video
               </label>
-              <input type='file' id='memory-media-input' name='memory-media' onChange={this.updateMemoryMedia} />
+              <input type='file' id='memory-media-input' name='memory-media' onChange={e => this.updateMemoryMediaState(e.target.files[0])}/>
             </div>
             <div className='add-memory-form '>
               <label htmlFor='memory-date-input'>
