@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import MemoryForm from '../MemoryForm/MemoryForm';
 import { MemoryContext } from '../MemoryContext';
 import ValidationError from '../ValidationError/ValidationError';
+import Spinner from '../Spinner/Spinner';
 import './AddMemory.css';
 import { API_BASE_URL, AWS_BASE_URL } from '../config';
 
@@ -19,6 +20,8 @@ static contextType = MemoryContext;
 constructor(props) {
   super(props);
   this.state = {
+    loading: true,
+    uploading: false,
     memoryTitle: {
       value: '',
       touched: false
@@ -74,12 +77,14 @@ constructor(props) {
     if (file == null) {
       return alert ('No file selected');
     }
+    this.setState({ uploading: true, loading: false })
     this.uploadToS3(file)
       .then(url => {
         this.setState({memoryMedia: {value: url, touched: true } }) 
       })
       .then(() => {
-        this.sendDataToServer();;
+        this.sendDataToServer();
+        this.setState({ uploading: false })
       });
       
   }
@@ -254,60 +259,72 @@ constructor(props) {
     const { familyMembers = [] } = this.context;
     // variable below limits the user from selecting a date in the future.
     const today = new Date().toISOString().substr(0, 10);
-    
+    const content = () => {
+      switch(true) {
+        case this.state.uploading :
+          return <Spinner />
+        case this.state.loading : 
+          return (
+            <MemoryForm onSubmit={e => this.handleSubmit(e)}>
+              <div className='add-memory-form '>
+                <label htmlFor='memory-title-input'>
+                  Name it
+                </label>
+                <input type='text' id='memory-title-input' name='memory-title' onChange={e => this.updateMemoryTitle(e.target.value)} />
+                <ValidationError hasError={!this.state.memoryTitleValid} message={this.state.validationMessages.memoryTitle}/>
+              </div>
+              <div className='add-memory-form '>
+                <label htmlFor='memory-description-input'>
+                  Describe it
+                </label>
+                <textarea id='memory-description-input' name='memory-description' onChange={e => this.updateMemoryDescription(e.target.value)} />
+                <ValidationError hasError={!this.state.memoryDescriptionValid} message={this.state.validationMessages.memoryDescription}/>
+              </div>
+              <div className='add-memory-form '>
+                <label htmlFor='family-member-select'>
+                  Family Member
+                </label>
+                <select id='family-member-select' name='family-member-id' onChange={e => this.updateFamilyMember(e.target.value)}>
+                  <option value="empty">...</option>
+                  {familyMembers.map(fm =>
+                    <option key={fm.id} value={fm.id}>
+                      {fm.first_name} {fm.last_name}
+                    </option>
+                  )}
+                </select>
+                <ValidationError hasError={!this.state.memoryFamilyMemberValid} message={this.state.validationMessages.memoryFamilyMember}/>
+              </div>
+              <div className='add-memory-form '>
+                <label htmlFor='memory-media-input'>
+                  Add pic/video
+                </label>
+                <input type='file' id='memory-media-input' name='memory-media' onChange={e => this.updateMemoryMediaState(e.target.files[0])}/>
+              </div>
+              <div className='add-memory-form '>
+                <label htmlFor='memory-date-input'>
+                  Date
+                </label>
+                <input type='date' id='memory-date-input' max={today} name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
+                <ValidationError hasError={!this.state.memoryDateValid} message={this.state.validationMessages.memoryDate}/>
+              </div>
+              <div className='buttons add-memory-buttons'>
+                <button type='submit' disabled={!this.state.formValid} className='Button blue'>
+                  Add memory
+                </button>
+                <button onClick={this.handleClickGoBack} className='Button blue'>Back</button>
+              </div>
+            </MemoryForm>
+          )
+        default:
+          return <></>
+      }
+    }
+
     return (
       <div>
         <section className='add-memory-container'>
           <h1>New Memory</h1>
-          <MemoryForm onSubmit={e => this.handleSubmit(e)}>
-            <div className='add-memory-form '>
-              <label htmlFor='memory-title-input'>
-                Name it
-              </label>
-              <input type='text' id='memory-title-input' name='memory-title' onChange={e => this.updateMemoryTitle(e.target.value)} />
-              <ValidationError hasError={!this.state.memoryTitleValid} message={this.state.validationMessages.memoryTitle}/>
-            </div>
-            <div className='add-memory-form '>
-              <label htmlFor='memory-description-input'>
-                Describe it
-              </label>
-              <textarea id='memory-description-input' name='memory-description' onChange={e => this.updateMemoryDescription(e.target.value)} />
-              <ValidationError hasError={!this.state.memoryDescriptionValid} message={this.state.validationMessages.memoryDescription}/>
-            </div>
-            <div className='add-memory-form '>
-              <label htmlFor='family-member-select'>
-                Family Member
-              </label>
-              <select id='family-member-select' name='family-member-id' onChange={e => this.updateFamilyMember(e.target.value)}>
-                <option value="empty">...</option>
-                {familyMembers.map(fm =>
-                  <option key={fm.id} value={fm.id}>
-                    {fm.first_name} {fm.last_name}
-                  </option>
-                )}
-              </select>
-              <ValidationError hasError={!this.state.memoryFamilyMemberValid} message={this.state.validationMessages.memoryFamilyMember}/>
-            </div>
-            <div className='add-memory-form '>
-              <label htmlFor='memory-media-input'>
-                Add pic/video
-              </label>
-              <input type='file' id='memory-media-input' name='memory-media' onChange={e => this.updateMemoryMediaState(e.target.files[0])}/>
-            </div>
-            <div className='add-memory-form '>
-              <label htmlFor='memory-date-input'>
-                Date
-              </label>
-              <input type='date' id='memory-date-input' max={today} name='memory-date' onChange={e => this.updateMemoryDate(e.target.value)} />
-              <ValidationError hasError={!this.state.memoryDateValid} message={this.state.validationMessages.memoryDate}/>
-            </div>
-            <div className='buttons add-memory-buttons'>
-              <button type='submit' disabled={!this.state.formValid} className='Button blue'>
-                Add memory
-              </button>
-              <button onClick={this.handleClickGoBack} className='Button blue'>Back</button>
-            </div>
-          </MemoryForm>
+          {content()}
         </section>
       </div>
     )
